@@ -1,0 +1,57 @@
+.navbar {
+   background-color: rgb(121, 125, 98);
+}
+
+#desc-head {
+   font-size: 60px;
+   text-align: center;
+   /* font-weight: bolder; */
+   font-family:fantasy;
+   margin-top: 120px;
+}
+
+#description {
+   font-size: 20px;
+   text-align: center;
+   font-weight: lighter;
+   font-family: cursive;
+   margin-bottom: 50px;
+}
+
+#collage {
+   aspect-ratio:1;
+   float: left;
+   border-bottom-left-radius: 100%;
+   background-color: #e8ac65;
+}
+/* 
+#collage-design {
+   position: relative;
+   background-color: black;
+   width: inherit;
+   aspect-ratio:5/4;
+   border-bottom-left-radius: 100%;
+} */
+
+#img-1 {
+   position: relative;
+   width: 40%;
+   top: 8%;
+   left: 13%;
+   z-index: 2;
+}
+
+#img-2 {
+   position: relative;
+   width: 45%;
+   top: -2%;
+   left: 44%;
+   z-index: 1;
+}
+
+#img-3 {
+   position: relative;
+   width: 45%;
+   top: -17%;
+   left: 8%;
+}
