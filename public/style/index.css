@@ -1,3 +1,6 @@
+body{
+   background-color: #F1DCA7;
+}
 .navbar {
    background-color: rgb(121, 125, 98);
    height: 70px;
@@ -6,17 +9,23 @@
 #desc-head {
    font-size: 60px;
    text-align: center;
-   /* font-weight: bolder; */
+   /* color:rgb(255, 255, 255); */
    font-family:fantasy;
    margin-top: 120px;
 }
 
 #description {
    font-size: 20px;
-   text-align: center;
-   font-weight: lighter;
-   font-family: cursive;
+   /* text-align: center; */
+   /* font-weight: lighter; */
+   /* font-family: cursive; */
    margin-bottom: 50px;
+}
+
+#start{
+   width: 200px; height: 60px;
+   background-color: #E8AC65
+   
 }
 
 #collage {
