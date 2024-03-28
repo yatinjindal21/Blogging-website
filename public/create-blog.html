@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Create Blog</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="style/create-blog.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+   <!-- ----------------------------- NAV-BAR ------------------------------------- -->
+   <nav class="navbar fixed-top bg-gradient">
+      <div class="container-fluid">
+         <div class="navbar-brand">
+
+         </div>
+      </div>
+   </nav>
+
+   <div class="col-md-12 free-space" style="height: 70px;"></div>
+
+   <!-- ------------------------------TOOL-BAR---------------------------------- -->
+   <div class="row fixed-bottom bg-gradient" id="nav-control">
+      <ul class="d-flex flex-row align-items-center" id="tools" style="height: inherit; ">
+         <li class="text-tool"><i class="fa-solid fa-link"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-font"></i></li>
+         <li class="text-tool">18</li>
+         <li class="text-tool">P</li>
+         <li class="text-tool"><i class="fa-solid fa-bold"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-italic"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-underline"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-strikethrough"></i></li>
+         <li class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
+            <div class="d-flex align-items-center" style="height: 20px;"><span><b>A</b></span></div>
+            <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor"></div>
+         </li>
+         <li class="text-tool d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span></div>
+            <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor"></div>
+         </li>
+         <li class="text-tool"><i class="fa-solid fa-align-center"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-align-justify"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-align-left"></i></li>
+         <li class="text-tool"><i class="fa-solid fa-align-right"></i></li>
+      </ul>
+   </div>
+
+   <!-- ---------------------------TITLE FOR BLOG -------------------------------------->
+   <main>
+      <article>
+         <div class="m-3">
+            <label for="inputBlogTitle" class="form-label" id="blog-title">Title</label>
+            <input type="text" class="form-control" id="inputBlogTitle" placeholder="Blog Title">
+         </div>
+      </article>
+   </main>
+
+
+
+</body>
+
+</html>
