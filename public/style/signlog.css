@@ -19,7 +19,7 @@ h3{
     text-shadow: 1px 1px rgb(198, 198, 198);
   }
 #submit{
-    /* margin-left: 160px; */
+    margin-left: 160px;
     background-color: rgb(217, 174, 148,0.5);
     
     width: 150px;
