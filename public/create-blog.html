@@ -13,9 +13,19 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    <link rel="stylesheet" href="style/create-blog.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <script>
+      $(document).ready(function () {
+         $('.btn-toggled').click(function () {
+            $(this).toggleClass('button-toggle1 button-toggle2');
+         });
+         $('#text-bg-color').click(function(){
+            $('#inputbgtextcolor').focus();
+         });
+      });
+   </script>
 </head>
 
-<body>
+<body style="background-image: url(pics/office-581127_1280.jpg);">
    <!-- ----------------------------- NAV-BAR ------------------------------------- -->
    <nav class="navbar fixed-top bg-gradient">
       <div class="container-fluid">
@@ -27,44 +37,200 @@
 
    <div class="col-md-12 free-space" style="height: 70px;"></div>
 
-   <!-- ------------------------------TOOL-BAR---------------------------------- -->
+   <!-- ------------------------------TOOL-BAR (mobile-view) ---------------------------------- -->
    <div class="row fixed-bottom bg-gradient" id="nav-control">
       <ul class="d-flex flex-row align-items-center" id="tools" style="height: inherit; ">
-         <li class="text-tool"><i class="fa-solid fa-link"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-font"></i></li>
-         <li class="text-tool">18</li>
-         <li class="text-tool">P</li>
-         <li class="text-tool"><i class="fa-solid fa-bold"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-italic"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-underline"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-strikethrough"></i></li>
+
+         <label class="text-tool" for="blog-image" id="insert-image">
+            <li class="text-tool"><i class="fa-solid fa-camera"></i></li>
+            <input type="file" accept="image/" id="blog-image" style="display: none;">
+         </label>
+
+         <select class="text-tool" id="select-font-style">
+            <option value="">Arial</option>
+            <option value="">Times</option>
+            <option value="">Roman</option>
+         </select>
+
+         <select class="text-tool" id="select-font-size">
+            <option value="">XS</option>
+            <option value="">S</option>
+            <option value="">M</option>
+            <option value="">L</option>
+            <option value="">XL</option>
+            <option value="">XXL</option>
+         </select>
+
+         <li class="text-tool" id="writing-type">P</li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="bold-content"><i class="fa-solid fa-bold"></i></li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="italic-content"><i class="fa-solid fa-italic"></i></li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="underline-content"><i class="fa-solid fa-underline"></i>
+         </li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="strike-content"><i class="fa-solid fa-strikethrough"></i>
+         </li>
+
          <li class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
-            <div class="d-flex align-items-center" style="height: 20px;"><span><b>A</b></span></div>
-            <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor"></div>
+            <label for="inputtextcolor">
+               <div class="d-flex align-items-center justify-content-center" style="height: 20px;"><span><b>A</b></span>
+               </div>
+               <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor">
+               </div>
+            </label>
          </li>
-         <li class="text-tool d-flex flex-column align-items-center">
-            <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span></div>
-            <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor"></div>
+
+         <li class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
+            <label for="inputbgtextcolor">
+               <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span></div>
+               <div class="d-flex align-items-start"><input type="color" id="inputbgtextcolor" name="inputbgtextcolor">
+               </div>
+            </label>
          </li>
-         <li class="text-tool"><i class="fa-solid fa-align-center"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-align-justify"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-align-left"></i></li>
-         <li class="text-tool"><i class="fa-solid fa-align-right"></i></li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="align-center"><i class="fa-solid fa-align-center"></i>
+         </li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="align-justify"><i class="fa-solid fa-align-justify"></i>
+         </li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="align-left"><i class="fa-solid fa-align-left"></i></li>
+
+         <li class="text-tool button-toggle2 btn-toggled" id="align-right"><i class="fa-solid fa-align-right"></i></li>
       </ul>
    </div>
 
-   <!-- ---------------------------TITLE FOR BLOG -------------------------------------->
+
    <main>
-      <article>
-         <div class="m-3">
+      <div class="d-flex flex-column align-items-center">
+         <!-- ---------------------------TITLE FOR BLOG -------------------------------------->
+         <div class="m-3" style="width: 90%;">
             <label for="inputBlogTitle" class="form-label" id="blog-title">Title</label>
             <input type="text" class="form-control" id="inputBlogTitle" placeholder="Blog Title">
          </div>
-      </article>
+
+         <!-- ----------------------------- TOOL-BAR (big-screen)--------------------- -->
+         <div class="row bg-gradient mt-3" id="nav-control2">
+            <ul class="d-flex flex-row align-items-center" id="tools" style="height: inherit; ">
+
+               <label class="text-tool" for="blog-image" id="insert-image">
+                  <li class="text-tool"><i class="fa-solid fa-camera"></i></li>
+                  <input type="file" accept="image/" id="blog-image" style="display: none;">
+               </label>
+
+               <select class="text-tool" id="select-font-style">
+                  <option value="">Arial</option>
+                  <option value="">Times</option>
+                  <option value="">Roman</option>
+               </select>
+
+               <select class="text-tool" id="select-font-size">
+                  <option value="">XS</option>
+                  <option value="">S</option>
+                  <option value="">M</option>
+                  <option value="">L</option>
+                  <option value="">XL</option>
+                  <option value="">XXL</option>
+               </select>
+
+               <li class="text-tool" id="writing-type">P</li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="bold-content"><i class="fa-solid fa-bold"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="italic-content"><i class="fa-solid fa-italic"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="underline-content"><i
+                     class="fa-solid fa-underline"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="strike-content"><i
+                     class="fa-solid fa-strikethrough"></i>
+               </li>
+
+               <li class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
+                  <label for="inputtextcolor">
+                     <div class="d-flex align-items-center justify-content-center" style="height: 20px;">
+                        <span><b>A</b></span>
+                     </div>
+                     <div class="d-flex align-items-start"><input type="color" id="inputtextcolor"
+                           name="inputtextcolor">
+                     </div>
+                  </label>
+               </li>
+
+               <li class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
+                  <label for="inputbgtextcolor">
+                     <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span>
+                     </div>
+                     <div class="d-flex align-items-start"><input type="color" id="inputbgtextcolor"
+                           name="inputbgtextcolor">
+                     </div>
+                  </label>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="align-center"><i
+                     class="fa-solid fa-align-center"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="align-justify"><i
+                     class="fa-solid fa-align-justify"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="align-left"><i class="fa-solid fa-align-left"></i>
+               </li>
+
+               <li class="text-tool button-toggle2 btn-toggled" id="align-right"><i class="fa-solid fa-align-right"></i>
+               </li>
+            </ul>
+         </div>
+
+         <!-- -------------------------- BLOG CONTENT ---------------------------------- -->
+         <div class="mt-4 p-5" id="editor-box" contenteditable="true"></div>
+      </div>
+
+      <!-- ------------------------------SIDE INFO-------------------------------- -->
+      <div id="side-info">
+         <div class="d-flex align-items-center justify-content-center" id="blog-details"
+            style="width: initial; background-color: #f1dca756; font-size: x-large;">
+            Details
+         </div>
+         <div class="d-flex flex-column justify-content-center alig-items-center p-2" id="additional-info"
+            style="margin-left: 5%; margin-right: 5%;">
+            <div>
+               <div style="font-size: x-large;"><b>Publisher</b></div>
+               <div style="font-size: large;">Yatin Jindal</div>
+            </div>
+            <br>
+            <hr size="5" color="#997b66">
+            <br>
+            <div>
+               <div style="font-size: x-large;"><b>Date</b></div>
+               <div style="font-size: large;">21 Sep 2024</div>
+            </div>
+            <br>
+            <hr size="5" color="#997b66">
+            <br>
+            <div class="d-flex flex-column">
+               <div style="font-size: x-large;"><b>Who can Comment?</b></div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                     value="option1">
+                  <label class="form-check-label" for="inlineRadio1" style="font-size: large;">Everyone</label>
+               </div>
+               <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                     value="option2">
+                  <label class="form-check-label" for="inlineRadio2" style="font-size: large;">Accounts you follow</label>
+               </div>
+            </div>
+         </div>
+         <div><button type="submit" class="btn" id="publish-blog">Publish</button></div>
+      </div>
    </main>
-
-
-
 </body>
 
 </html>

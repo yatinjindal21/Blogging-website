@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Editor</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    button {
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="editor" contenteditable="true" style="border: 1px solid #ccc; padding: 10px;"></div>
+<div id="toolbar" style="margin-top: 10px;">
+    <button onclick="execCmd('Bold')">Bold</button>
+    <button onclick="execCmd('italic')">Italic</button>
+    <button onclick="execCmd('underline')">Underline</button>
+    <button onclick="execCmd('strikeThrough')">Strike</button>
+    <select onchange="execCmdWithArg('fontName', this.value)">
+        <option value="" selected disabled>Select Font</option>
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+    </select>
+    <select onchange="execCmdWithArg('fontSize', this.value)">
+        <option value="" selected disabled>Select Font Size</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
+</div>
+<script>
+    function execCmd(command) {
+        document.execCommand(command, false, null);
+    }
+
+    function execCmdWithArg(command, arg) {
+        document.execCommand(command, false, arg);
+    }
+</script>
+</body>
+</html>
