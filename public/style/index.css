@@ -1,17 +1,40 @@
-body{
-   background-color: #F1DCA7;
+body {
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center;
 }
+
 .navbar {
    background-color: rgb(121, 125, 98);
+   height: 70px;
+   /* box-shadow: -1px -1px 10px rgba(255, 219, 103, 0.845); */
+}
+
+#navbut {
+   border-radius: 0%;
+   border-color: rgb(255, 222, 155);
+   color: rgb(255, 221, 152);
+
+}
+
+#navbut:hover {
+   background-color: #ffcf7790;
+   border: none;
+   color: rgb(0, 0, 0);
+}
+
+#maintext {
    height: 70px;
 }
 
 #desc-head {
    font-size: 60px;
    text-align: center;
-   /* color:rgb(255, 255, 255); */
-   font-family:fantasy;
+   font-family: fantasy;
    margin-top: 120px;
+   color: rgb(255, 206, 107);
+   text-shadow: 1px 1px 5px black;
 }
 
 #description {
@@ -20,19 +43,45 @@ body{
    /* font-weight: lighter; */
    /* font-family: cursive; */
    margin-bottom: 50px;
+   color: rgb(255, 206, 107);
+   text-shadow: 1px 1px 5px black;
+
 }
 
-#start{
-   width: 200px; height: 60px;
-   background-color: #E8AC65
-   
+#start {
+   width: 200px;
+   height: 60px;
+   background-color: #ebbc65;
+   color: black;
+   border-radius: 0%;
+   margin-bottom: 20px;
+}
+
+#start:hover {
+   border-color: #ffe6c7;
+   background-color: #fdbf4b;
+   color: black;
+   /* color: rgb(251, 255, 178); */
+   /*offset-x | offset-y | blur radius | spread radius | color*/
+   box-shadow: 0 0.5em 0.5em -0.4em #ffe6c7;
+   /*????*/
+   /* transform: translateY(-0.25em); */
+   cursor: pointer;
+   margin-bottom: 5px;
 }
 
 #collage {
-   aspect-ratio:1;
+   aspect-ratio: 1;
+   float: left;
    border-bottom-left-radius: 100%;
-   background-color: #e8ac65;
+
+   background-color: #f1dca76d;
+   /* border: 5px solid #ffcb69; */
+   box-shadow: 0px 0px 30px rgb(255, 206, 107);
+   border-top: 0px;
+   border-right: 0px;
 }
+
 /* 
 #collage-design {
    position: relative;
@@ -42,25 +91,245 @@ body{
    border-bottom-left-radius: 100%;
 } */
 
+
 #img-1 {
    position: relative;
    width: 40%;
-   top: 8%;
-   left: 13%;
+   top: 6%;
+   left: 50%;
    z-index: 2;
+   border: 5px solid rgb(255, 206, 107);
+   /* outline-offset: 4px rgb(255, 206, 107);; */
+   padding: 10px;
+   background-color: rgba(250, 221, 162, 0.601);
 }
 
 #img-2 {
    position: relative;
    width: 45%;
    top: -2%;
-   left: 44%;
+   left: 15%;
    z-index: 1;
+   /* border: 5px solid rgb(255, 206, 107); */
+   border: 5px solid rgb(255, 206, 107);
+   /* outline-offset: 4px rgb(255, 206, 107);; */
+   padding: 10px;
+   background-color: rgba(250, 221, 162, 0.601);
+   /* outline-offset: 4px rgb(255, 206, 107);; */
+
+
+
 }
 
 #img-3 {
    position: relative;
    width: 45%;
    top: -17%;
-   left: 8%;
+   left: 50%;
+   border: 5px solid rgb(255, 206, 107);
+   /* outline-offset: 4px rgb(255, 206, 107);; */
+   padding: 10px;
+   background-color: rgba(250, 221, 162, 0.601);
+
+}
+
+.board {
+   padding-left: 30px;
+   /* height: 500px; */
+   width: 700px;
+   /* display:flex; */
+   /* justify-content: center; */
+   /* align-items: center; */
+
+}
+
+.accordion {
+   display: flex;
+   flex-direction: column;
+
+}
+
+#one {
+   display: flex;
+}
+
+.boardpic {
+   height: 370px;
+   width: 45%;
+   /* display:inline-block; */
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   margin-left: 20px;
+   border: 20px solid #E8AC65;
+   z-index: 2;
+   margin-top: 25px;
+
+}
+
+.accordion-item {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   background-color: #f1dca774;
+}
+
+.accordion-button {
+   /* padding-bottom: 40px; */
+   background-color: rgba(241, 220, 167, 0);
+   /* border-bottom: 1.5px solid rgb(164, 98, 0,0.5); */
+   /* border-top: 1px solid rgb(160, 107, 2); */
+   color: rgb(164, 98, 0, 0.8);
+   font-weight: bold;
+   border: 1px solid #F1DCA7;
+   height: 60px;
+   font-size: 0.7em;
+
+   /* margin-bottom: 10px; */
+}
+
+hr {
+   color: rgb(164, 98, 0, 0.5);
+}
+
+.accordion-button:hover {
+   /* background-color: rgb(232, 172, 101, 0.5);
+   color: white;
+   border-top: 1px solid #ffffff;
+   border-bottom: 1px solid #ffffff;
+   font-weight: bold; */
+   cursor: pointer;
+}
+
+/* .accordion-button:visited{
+   background-color: black;
+   
+} */
+/* .accordion-button:active{
+   background-color: rgb(232, 172, 101);
+   color:white;
+   
+
+
+} */
+.accordion-button:focus {
+   border: none;
+   outline: none;
+   box-shadow: none;
+   background-color: rgba(83, 72, 43, 0);
+   color: rgb(164, 98, 0, 0.8);
+}
+
+.accordion-body {
+   /* background-color: rgb(232, 172, 101, 0.5); */
+   color: rgb(160, 107, 2);
+   /* font-weight: bold; */
+   /* margin: 20px; */
+   background: none;
+   font-size: 1.1em;
+
+}
+
+#two {
+   position: absolute;
+   height: 390px;
+   width: 45%;
+   bottom: -50%;
+   left: -10%;
+   /* right: 0px;  */
+   border: 20px solid rgba(232, 173, 101, 0.749);
+   border-left: 0px;
+   z-index: -1;
+   /* Behind element */
+   /* border-top-right-radius: 100%;
+   border-bottom-right-radius: 100%; */
+   margin-top: 10px;
+
+}
+
+#three {
+   border: 20px solid rgba(232, 173, 101, 0.411);
+   height: 290px;
+   width: 35%;
+   top: 110%;
+   left: 25%;
+   position: absolute;
+   /* bottom:0px; */
+   z-index: -1;
+}
+
+@media(max-width:1254px) {
+   #one {
+      flex-direction: column;
+   }
+
+   #two,
+   #three {
+      display: none;
+
+   }
+
+   .boardpic {
+      align-self: center;
+      width: 60%;
+      height: 350px;
+   }
+
+   .accordion-item {
+      /* margin-left:32.5%; */
+      width: 100%;
+   }
+
+
+}
+
+@media (min-width:1094px) {
+   #main-div {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+   }
+
+}
+
+@media (max-width:1094px) {
+   #collage {
+      border-bottom-left-radius: 0%;
+   }
+
+}
+
+
+
+@media(max-width:714px) {
+  .boardpic{
+      width:100%;
+
+    }
+    #all{
+      flex-grow: 1;
+    }
+    body{
+      background-color: black;
+      background-image: none;
+    }
+    
+
+}
+
+@media(max-width:698px) {
+
+   /* #main-div {
+      margin: 0px;
+   } */
+}
+
+@media (max-width:480px) {
+
+   /* #collage {
+      float: right;
+      width: 100%;
+   } */
+
+   /* #maintext {
+      height: 50px;
+   } */
 }
