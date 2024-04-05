@@ -18,10 +18,33 @@
          $('.btn-toggled').click(function () {
             $(this).toggleClass('button-toggle1 button-toggle2');
          });
-         $('#text-bg-color').click(function(){
+         $('#text-bg-color').click(function () {
             $('#inputbgtextcolor').focus();
          });
       });
+
+
+      function execCmd(command) {
+         document.execCommand(command, false, null);
+      }
+
+      function execCmdWithArg(command, arg) {
+         document.execCommand(command, false, arg);
+      }
+
+      function changeTextColor(color) {
+
+         if (color != null) {
+            document.execCommand('foreColor', false, color);
+         }
+      }
+
+      function changeTextBGColor(color) {
+
+         if (color != null) {
+            document.execCommand('backColor', false, color);
+         }
+      }
    </script>
 </head>
 
@@ -63,32 +86,38 @@
 
          <li class="text-tool" id="writing-type">P</li>
 
-         <li class="text-tool button-toggle2 btn-toggled" id="bold-content"><i class="fa-solid fa-bold"></i></li>
+         <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Bold')" id="bold-content"><i
+               class="fa-solid fa-bold"></i></li>
 
-         <li class="text-tool button-toggle2 btn-toggled" id="italic-content"><i class="fa-solid fa-italic"></i></li>
+         <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('italic')" id="italic-content"><i
+               class="fa-solid fa-italic"></i></li>
 
-         <li class="text-tool button-toggle2 btn-toggled" id="underline-content"><i class="fa-solid fa-underline"></i>
+         <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Underline')" id="underline-content"><i
+               class="fa-solid fa-underline"></i>
          </li>
 
-         <li class="text-tool button-toggle2 btn-toggled" id="strike-content"><i class="fa-solid fa-strikethrough"></i>
+         <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('strikeThrough')" id="strike-content"><i
+               class="fa-solid fa-strikethrough"></i>
          </li>
 
-         <li class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
+         <button class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
             <label for="inputtextcolor">
                <div class="d-flex align-items-center justify-content-center" style="height: 20px;"><span><b>A</b></span>
                </div>
-               <div class="d-flex align-items-start"><input type="color" id="inputtextcolor" name="inputtextcolor">
+               <div class="d-flex align-items-start"><input type="color" onchange="changeTextColor(this.value)"
+                     value="black" id="inputtextcolor" name="inputtextcolor">
                </div>
             </label>
-         </li>
+         </button>
 
-         <li class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
+         <button class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
             <label for="inputbgtextcolor">
                <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span></div>
-               <div class="d-flex align-items-start"><input type="color" id="inputbgtextcolor" name="inputbgtextcolor">
+               <div class="d-flex align-items-start"><input type="color" onchange="changeTextBGColor(this.value)"
+                     id="inputbgtextcolor" name="inputbgtextcolor">
                </div>
             </label>
-         </li>
+         </button>
 
          <li class="text-tool button-toggle2 btn-toggled" id="align-center"><i class="fa-solid fa-align-center"></i>
          </li>
@@ -120,71 +149,76 @@
                   <input type="file" accept="image/" id="blog-image" style="display: none;">
                </label>
 
-               <select class="text-tool" id="select-font-style">
-                  <option value="">Arial</option>
-                  <option value="">Times</option>
-                  <option value="">Roman</option>
+               <select class="text-tool" id="select-font-style" onchange="execCmdWithArg('fontName', this.value)">
+                  <option value="Arial">Arial</option>
+                  <option value="Times New Roman">Times New Roman</option>
+                  <option value="Courier New">Courier New</option>
                </select>
 
-               <select class="text-tool" id="select-font-size">
-                  <option value="">XS</option>
-                  <option value="">S</option>
-                  <option value="">M</option>
-                  <option value="">L</option>
-                  <option value="">XL</option>
-                  <option value="">XXL</option>
+               <select class="text-tool" id="select-font-size" onchange="execCmdWithArg('fontSize', this.value)">
+                  <option value="1">XXS</option>
+                  <option value="2">XS</option>
+                  <option selected value="3">S</option>
+                  <option value="4">M</option>
+                  <option value="5">L</option>
+                  <option value="6">XL</option>
+                  <option value="7">XXL</option>
                </select>
 
                <li class="text-tool" id="writing-type">P</li>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="bold-content"><i class="fa-solid fa-bold"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Bold')" id="bold-content"><i
+                     class="fa-solid fa-bold"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="italic-content"><i class="fa-solid fa-italic"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" onclick="execCmd('italic')" id="italic-content"><i
+                     class="fa-solid fa-italic"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="underline-content"><i
-                     class="fa-solid fa-underline"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Underline')"
+                  id="underline-content"><i class="fa-solid fa-underline"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="strike-content"><i
-                     class="fa-solid fa-strikethrough"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" onclick="execCmd('strikeThrough')"
+                  id="strike-content"><i class="fa-solid fa-strikethrough"></i>
+               </button>
 
-               <li class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
+               <button class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
                   <label for="inputtextcolor">
                      <div class="d-flex align-items-center justify-content-center" style="height: 20px;">
                         <span><b>A</b></span>
                      </div>
                      <div class="d-flex align-items-start"><input type="color" id="inputtextcolor"
-                           name="inputtextcolor">
+                           onchange="changeTextColor(this.value)" name="inputtextcolor">
                      </div>
                   </label>
-               </li>
+               </button>
 
-               <li class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
+               <button class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
                   <label for="inputbgtextcolor">
                      <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span>
                      </div>
-                     <div class="d-flex align-items-start"><input type="color" id="inputbgtextcolor"
-                           name="inputbgtextcolor">
+                     <div class="d-flex align-items-start"><input type="color" onchange="changeTextBGColor(this.value)"
+                           id="inputbgtextcolor" name="inputbgtextcolor">
                      </div>
                   </label>
-               </li>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="align-center"><i
-                     class="fa-solid fa-align-center"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" id="align-center"
+                  onclick="execCmd('justifyCenter')"><i class="fa-solid fa-align-center"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="align-justify"><i
-                     class="fa-solid fa-align-justify"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" onclick="execCmd('justifyFull')"
+                  id="align-justify"><i class="fa-solid fa-align-justify"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="align-left"><i class="fa-solid fa-align-left"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" id="align-left" onclick="execCmd('justifyLeft')"><i
+                     class="fa-solid fa-align-left"></i>
+               </button>
 
-               <li class="text-tool button-toggle2 btn-toggled" id="align-right"><i class="fa-solid fa-align-right"></i>
-               </li>
+               <button class="text-tool button-toggle2 btn-toggled" id="align-right"
+                  onclick="execCmd('justifyRight')"><i class="fa-solid fa-align-right"></i>
+               </button>
             </ul>
          </div>
 
@@ -224,7 +258,8 @@
                <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                      value="option2">
-                  <label class="form-check-label" for="inlineRadio2" style="font-size: large;">Accounts you follow</label>
+                  <label class="form-check-label" for="inlineRadio2" style="font-size: large;">Accounts you
+                     follow</label>
                </div>
             </div>
          </div>

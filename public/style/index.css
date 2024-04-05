@@ -30,7 +30,6 @@ body{
 
 #collage {
    aspect-ratio:1;
-   float: left;
    border-bottom-left-radius: 100%;
    background-color: #e8ac65;
 }

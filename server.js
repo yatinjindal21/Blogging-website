@@ -15,3 +15,10 @@ app.get("/", function (req, resp) {
    resp.sendFile(process.cwd() + "/public/index.html");
 })
 
+app.get("/login", function (req, resp) {
+   resp.sendFile(process.cwd() + "/public/login.html");
+})
+
+app.get("/signup", function (req, resp) {
+   resp.sendFile(process.cwd() + "/public/signup.html");
+})
