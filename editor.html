@@ -11,6 +11,11 @@
     button {
         cursor: pointer;
     }
+    .resizable {
+        resize: both;
+        overflow: auto;
+        border: 1px solid #ccc;
+    }
 </style>
 </head>
 <body>
@@ -36,14 +41,60 @@
         <option value="6">6</option>
         <option value="7">7</option>
     </select>
+    <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="insertImage()">
+    <button onclick="document.getElementById('imageInput').click()">Insert Image</button>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.12"></script>
 <script>
+    function makeResizableAndDraggable(el) {
+        interact(el).resizable({
+            edges: { left: true, right: true, bottom: true, top: true }
+        }).draggable({
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'parent'
+                })
+            ],
+            autoScroll: true,
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    let x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    let y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                    target.style.webkitTransform = target.style.transform = `translate(${x}px, ${y}px)`;
+
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                }
+            }
+        });
+    }
+
     function execCmd(command) {
         document.execCommand(command, false, null);
     }
 
     function execCmdWithArg(command, arg) {
         document.execCommand(command, false, arg);
+    }
+
+    function insertImage() {
+        const fileInput = document.getElementById('imageInput');
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = document.createElement('img');
+                img.src = event.target.result;
+                img.classList.add('resizable');
+                document.getElementById('editor').focus();
+                document.execCommand('insertHTML', false, img.outerHTML);
+                makeResizableAndDraggable('.resizable');
+            };
+            reader.readAsDataURL(file);
+        }
     }
 </script>
 </body>

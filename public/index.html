@@ -13,6 +13,8 @@
    <link rel="stylesheet" href="style/index.css">
 </head>
 
+<!--=============================================================================================================================================-->
+
 <body style="background-image: url(pics/office-581127_1280.jpg);">
    <nav class="navbar fixed-top navbar-dark">
       <div class="container-fluid">
@@ -22,44 +24,42 @@
             Blogospy
          </a>
          <div>
-            <button class="btn btn-outline-light btn-lg ms-2" type="submit" id="navbut"><b>Signup</b></button>
-            <button class="btn btn-outline-light btn-lg ms-2 me-3" type="submit" id="navbut"><b>Login</b></button>
+            <a href="/signup.html" class="btn btn-outline-light btn-lg ms-2" id="navbut"><b>Signup</b></a>
+            <a href="/login.html" class="btn btn-outline-light btn-lg ms-2 me-3" id="navbut"><b>Login</b></a>
          </div>
       </div>
    </nav>
 
    <div class="col-md-12" id="maintext"></div>
 
-   <div class="container-fluid">
-      <div class="col-12" id="main-div">
-         <div class="d-flex flex-column align-items-center " id="#all">
-            <div id="desc-head">Experience the World of Limitless Expressions!!!</div>
-            <div class="mt-5">
-               <div class="ms-5 me-5" id="description">Share your thoughts, ideas, and stories with the world
-                  effortlessly.
-                  Connect, engage, and inspire through words on our intuitive and user-friendly blogging website.</div>
+   <form method="post">
+      <main>
+         <div id="main-div">
+            <div class="d-flex flex-column align-items-center " id="#all">
+               <div id="desc-head">Experience the World of Limitless Expressions!!!</div>
+               <div class="mt-5">
+                  <div class="ms-5 me-5" id="description">Share your thoughts, ideas, and stories with the world
+                     effortlessly.
+                     Connect, engage, and inspire through words on our intuitive and user-friendly blogging website.
+                  </div>
+               </div>
+               <div>
+                  <a href="/login.html" class="btn btn-lg" id="start">Get Started</a>
+               </div>
             </div>
-            <div>
-               <button class="btn btn-lg " id="start">Get Started</button>
+            <div class="" id="collage">
+               <div id="img-1">
+                  <img src="pics/macbook-apple-imac-computer-39284.jpeg" class="img-fluid" alt="">
+               </div>
+               <div id="img-2">
+                  <img src="pics/pexels-photo-261579.webp" class="img-fluid" alt="">
+               </div>
+               <div id="img-3">
+                  <img src="pics/pexels-photo-262508.webp" class="img-fluid" alt="">
+               </div>
             </div>
          </div>
-         <div class="" id="collage">
-            <div id="img-1">
-               <img src="pics/macbook-apple-imac-computer-39284.jpeg" class="img-fluid" alt="">
-            </div>
-            <div id="img-2">
-               <img src="pics/pexels-photo-261579.webp" class="img-fluid" alt="">
-            </div>
-            <div id="img-3">
-               <img src="pics/pexels-photo-262508.webp" class="img-fluid" alt="">
-            </div>
-
-         </div>
-
-      </div>
-
-   </div>
-   <!-- <div class="container" style="">
+         <!-- <div class="container" style="">
       <div class="row">
          <div class="col-6" id="extra" style="background-image: url(pics/nick-morrison-FHnnjk1Yj7Y-unsplash.jpg);">
             <div class="col-6" id="write">Customize your blog’s look and feel in a couple of clicks with beautifully
@@ -71,62 +71,71 @@
    </div> -->
 
 
-   <div class="container-fluid" id="one">
-      <div id="two"></div>
-      <div id="three"></div>
-      <div class="boardpic" style="background-image: url(pics/anete-lusina-zwsHjakE_iI-unsplash.jpg)"></div>
-      <div class="board">
-         <div class="accordion accordion-flush" id="accordionFlushExample">
-            <hr>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                     data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                     Responsive Design
-                  </button>
-               </h2>
-               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                  data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Your blog will look great on any device thanks to our responsive design.
-                     Whether your readers are viewing your blog on a desktop, tablet, or smartphone, they'll enjoy a
-                     seamless browsing experience with no compromises.</div>
-               </div>
+         <div id="one">
+            <div id="two"></div>
+            <div id="three"></div>
+            <div class="boardpic img-fluid" style="background-image: url(pics/anete-lusina-zwsHjakE_iI-unsplash.jpg)">
             </div>
-            <hr>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                     data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                     Seamless Publishing Workflow
-                  </button>
-               </h2>
-               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                  data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Our platform offers a seamless publishing workflow, allowing bloggers to
-                     draft, edit, and publish content with ease. From scheduling posts for optimal timing to
-                     collaborating with team members, our platform streamlines the entire publishing process.</div>
-               </div>
-            </div>
-            <hr>
-            <div class="accordion-item">
-               <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                     data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                     Continuous Updates and Support
-                  </button>
-               </h2>
-               <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                  data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">Benefit from ongoing updates and dedicated support from our team. We're
-                     committed to providing regular feature enhancements, bug fixes, and technical assistance to ensure
-                     that your blogging experience remains smooth and hassle-free.</div>
+            <div class="board">
+               <div class="accordion accordion-flush" id="accordionFlushExample">
+                  <hr>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                           Responsive Design
+                        </button>
+                     </h2>
+                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Your blog will look great on any device thanks to our responsive
+                           design.
+                           Whether your readers are viewing your blog on a desktop, tablet, or smartphone, they'll enjoy
+                           a
+                           seamless browsing experience with no compromises.</div>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                           Seamless Publishing Workflow
+                        </button>
+                     </h2>
+                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Our platform offers a seamless publishing workflow, allowing
+                           bloggers
+                           to
+                           draft, edit, and publish content with ease. From scheduling posts for optimal timing to
+                           collaborating with team members, our platform streamlines the entire publishing process.
+                        </div>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="accordion-item">
+                     <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                           data-bs-target="#flush-collapseThree" aria-expanded="false"
+                           aria-controls="flush-collapseThree">
+                           Continuous Updates and Support
+                        </button>
+                     </h2>
+                     <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Benefit from ongoing updates and dedicated support from our team.
+                           We're
+                           committed to providing regular feature enhancements, bug fixes, and technical assistance to
+                           ensure
+                           that your blogging experience remains smooth and hassle-free.</div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-   </div>
-
-
+      </main>
+   </form>
 
 
 

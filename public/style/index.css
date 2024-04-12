@@ -27,6 +27,11 @@ body {
 #maintext {
    height: 70px;
 }
+ 
+main {
+   display: flex;
+   flex-direction: column;
+}
 
 #desc-head {
    font-size: 60px;
@@ -55,6 +60,7 @@ body {
    color: black;
    border-radius: 0%;
    margin-bottom: 20px;
+   padding: 15px;
 }
 
 #start:hover {
@@ -135,8 +141,9 @@ body {
 
 .board {
    padding-left: 30px;
+   padding-right: 30px;
    /* height: 500px; */
-   width: 700px;
+   width: 60%;
    /* display:flex; */
    /* justify-content: center; */
    /* align-items: center; */
@@ -146,16 +153,17 @@ body {
 .accordion {
    display: flex;
    flex-direction: column;
-
 }
 
 #one {
    display: flex;
+   width: initial;
 }
 
 .boardpic {
-   height: 370px;
+   /* height: 370px; */
    width: 45%;
+   aspect-ratio: 5/3;
    /* display:inline-block; */
    background-repeat: no-repeat;
    background-size: cover;
@@ -260,26 +268,28 @@ hr {
 @media(max-width:1254px) {
    #one {
       flex-direction: column;
+      align-items: center;
    }
 
    #two,
    #three {
       display: none;
-
    }
 
    .boardpic {
       align-self: center;
       width: 60%;
-      height: 350px;
+      aspect-ratio: 5/3;
    }
 
    .accordion-item {
-      /* margin-left:32.5%; */
+      
       width: 100%;
    }
 
-
+   .board {
+      width: 90%;
+   }
 }
 
 @media (min-width:1094px) {
@@ -287,49 +297,44 @@ hr {
       display: grid;
       grid-template-columns: 5fr 7fr;
    }
-
 }
 
 @media (max-width:1094px) {
    #collage {
       border-bottom-left-radius: 0%;
    }
-
 }
 
+/* @media(max-width:714px) {
+   .boardpic {
+      width: 100%;
+   }
 
-
-@media(max-width:714px) {
-  .boardpic{
-      width:100%;
-
-    }
-    #all{
+   #all {
       flex-grow: 1;
-    }
-    body{
+   }
+
+   body {
       background-color: black;
       background-image: none;
-    }
-    
+   }
+} */
 
-}
+/* @media(max-width:698px) {
 
-@media(max-width:698px) {
-
-   /* #main-div {
+ #main-div {
       margin: 0px;
-   } */
+   }
 }
 
 @media (max-width:480px) {
 
-   /* #collage {
+    #collage {
       float: right;
       width: 100%;
-   } */
+   } 
 
-   /* #maintext {
+    #maintext {
       height: 50px;
-   } */
-}
+   }
+} */
