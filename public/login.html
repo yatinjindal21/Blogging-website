@@ -58,41 +58,45 @@
          });
       });
    </script>
+
+   
 </head>
 
 <!--=================================================================================================================================-->
 
 
-<body id="bodybg" style="background-image: url('pics/jess-bailey-UHqfUTDmdC4-unsplash.jpg');">
-   <div id="title" style="margin-bottom: 0px; height: 65px;">
-      <h3>Blogospy</h3>
+<body style="background-image: url('pics/janko-ferlic-sfL_QOnmy00-unsplash.jpg');height: 100vh;">
+   <div id="title" style=" height: 2em; font-size: 1.7em; font-weight:600;">
+      Blogospy
    </div>
-   <div id="box" style="height: 420px; width: 400px; margin-top: 0px; padding-left: 20px; padding-right: 20px;">
-      <div class="container">
-         <h4 style="text-align: center; padding-top: 20px;">Login</h3>
+   <form style="margin-top:3.5em;">
+      <div id="box1" style="margin-bottom: 20px;padding-bottom: 2em;">
+         <div class="container">
+            <div style="text-align: center;" id="logintitle">Login</div>
+            <!-- margin-top: 4em; padding-left: 1.2em; padding-right: 1.2em; padding-bottom: 1.3em; width:25em;-->
 
-            <form style="padding-top: 10px;">
-               <div class="form-group">
-                  <label for="inputemail">Username<span id="emailres" style="color: red;">*</span></label>
-                  <input type="email" class="form-control" id="inputemail" name="inputemail"
-                     aria-describedby="emailHelp">
-               </div>
-               <div class="form-group">
-                  <label for="inputpassword">Password <span id="pwdres" style="color: red;">*</span></label>
-                  <input type="password" class="form-control" id="inputpassword" name="inputpassword"
-                     aria-describedby="passcheck">
-                  <div style="margin-left: 200px; margin-top: 10px; font-size:medium;"><a href="#">Forgot
-                        Password?</a></div>
-               </div>
-               <span id="lres"></span>
-               <button id="submit" type="button" class="btn" style="margin-left: 90px; margin-top: 10px;">Log
-                  in</button>
-            </form>
+            <div class="form-group" style="margin-top: 0.8em;">
+               <label for="inputemail">Username<span id="emailres" style="color: red;">*</span></label>
+               <input type="email" class="form-control" id="inputemail" name="inputemail" aria-describedby="emailHelp"
+                  style="background-color: rgba(255, 253, 251, 0.503);">
+            </div>
+            <div class="form-group">
+               <label for="inputpassword">Password<span id="pwdres" style="color: red;">*</span></label>
+               <input type="password" class="form-control" id="inputpassword" name="inputpassword"
+                  aria-describedby="passcheck" style="background-color: rgba(255, 253, 251, 0.503);">
+               <div style="text-align: right; margin-top: 1em; "><a href="#">Forgot
+                     Password?</a></div>
+            </div>
+            <span id="lres"></span>
+            <button id="submit" type="button" class="btn" style="margin:auto">Log
+               in</button>
+
             <div style="text-align: center; margin-top: 30px;">Don't have an account? <a href="/signup.html">Sign up
                   here</a>
             </div>
+         </div>
       </div>
-   </div>
+   </form>
 </body>
 
 </html>
