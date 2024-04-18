@@ -32,9 +32,12 @@ app.get("/create-blog", function (req, resp) {
    resp.sendFile(process.cwd() + "/public/create-blog.html");
 })
 
-
 app.get("/display-blogs", function (req, resp) {
    resp.sendFile(process.cwd() + "/public/display-blogs.html");
+})
+
+app.get("/view-blog", function (req, resp) {
+   resp.sendFile(process.cwd() + "/public/view-blog.html");
 })
 
 //---------------------------DB Operations-------------------
@@ -150,11 +153,10 @@ app.post("/post-blog", function (req, resp) {
 
    dbCon.query("insert into blogs(username,blogname,blogcontent,image,postdate,commentpermi) values(?,?,?,?,current_date(),?)", [uname, title, content, fileName, comments], function (err) {
 
-      if(err==null)
-      {
+      if (err == null) {
          resp.send("blog posted");
       }
-      else{
+      else {
          resp.send(err.toString());
       }
    })
@@ -167,6 +169,32 @@ app.get("/get-publisher", function (req, resp) {
    var username = req.query.uname;
 
    dbCon.query("select * from users where username=?", [username], function (err, resultTableJSON) {
+      if (err == null)
+         resp.send(resultTableJSON);
+      else
+         resp.send(err);
+   })
+})
+
+//-------------------------- GET ALL BLOGS ===============================
+
+app.get("/get-all-blogs", function (req, resp) {
+
+   dbCon.query("select * from blogs", function (err, resultTableJSON) {
+      if (err == null)
+         resp.send(resultTableJSON);
+      else
+         resp.send(err);
+   })
+})
+
+//--------------------------- GET BLOG DATA =================================
+
+app.get("/get-blog-data", function (req, resp) {
+
+   var blogid = req.query.blogid;
+
+   dbCon.query("select * from blogs where blogid=?", [blogid], function (err, resultTableJSON) {
       if (err == null)
          resp.send(resultTableJSON);
       else

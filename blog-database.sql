@@ -21,7 +21,7 @@ CREATE TABLE blogs (
     image VARCHAR(200),
     postdate DATE,
     commentpermi VARCHAR(20),
-    likes int,
+    likes int default(0),
     FOREIGN KEY (username)
         REFERENCES users (username)
 );

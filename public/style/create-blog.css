@@ -1,8 +1,8 @@
 body {
    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position:center; 
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center;
 }
 
 .navbar {
@@ -66,18 +66,18 @@ body {
 }
 
 button.text-tool {
-    /* border-radius: 5px; */
-    margin: 1px;
-    /* border: 1px solid; */
-    height: inherit;
-    aspect-ratio: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* box-shadow: inset 1px 1px 10px #f5ebd5; */
-    cursor: pointer;
-    background: none;
-    border: none;
+   /* border-radius: 5px; */
+   margin: 1px;
+   /* border: 1px solid; */
+   height: inherit;
+   aspect-ratio: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* box-shadow: inset 1px 1px 10px #f5ebd5; */
+   cursor: pointer;
+   background: none;
+   border: none;
 }
 
 #bgtextcolor {
@@ -90,9 +90,10 @@ button.text-tool {
    align-items: center;
 }
 
-#inputtextcolor, #inputbgtextcolor {
+#inputtextcolor,
+#inputbgtextcolor {
    border: none;
-   height: 4px; 
+   height: 4px;
    width: 20px;
 }
 
@@ -153,7 +154,7 @@ button.text-tool {
 }
 
 #editorbox:focus {
-   box-shadow:  0px 0px 20px #ad9c73e8;
+   box-shadow: 0px 0px 20px #ad9c73e8;
 }
 
 #publish-blog {

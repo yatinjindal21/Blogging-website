@@ -1,8 +1,8 @@
 body {
    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position:center; 
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center;
 }
 
 .card {
@@ -10,15 +10,39 @@ body {
    width: 30.33%;
    background-color: #f1dca760;
    box-shadow: 0px 0px 15px #FFCB69;
-   height: 300px;
+   height: 45vh;
+   float: left;
+   min-height: 300px;
+}
+
+.card:hover {
+   cursor: pointer;
 }
 
 .card-img-top {
-   height: 65%;
+   height: 55%;
+   width: 90%;
+   margin: auto;
+   margin-top: 0.6em;
 }
 
 #card-title {
    font-size: xx-large;
    color: rgba(97, 59, 3, 0.871);
    text-shadow: 1px 1px 2px #ffcb69c3;
+}
+
+@media screen and (max-width: 1000px){
+   
+   .card{
+      width:47%;
+   }
+}
+
+@media screen and (max-width: 650px){
+   
+   .card{
+      width:90%;
+      margin: 5%;
+   }
 }

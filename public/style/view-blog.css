@@ -1,0 +1,14 @@
+body {
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center;
+}
+
+main {
+   width: 80%;
+   height: 100vh;
+   background-color: #b079458e;
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
