@@ -17,6 +17,9 @@ body {
 
 .card:hover {
    cursor: pointer;
+   box-shadow: 0px 0px 20px #fdc358;
+   transition: ease-in-out 0.2s;
+   transform: scale(1.01);
 }
 
 .card-img-top {
@@ -36,6 +39,7 @@ body {
    
    .card{
       width:47%;
+      transition:ease 1s;
    }
 }
 
@@ -45,4 +49,8 @@ body {
       width:90%;
       margin: 5%;
    }
+}
+
+.fa-solid {
+   color: red;
 }

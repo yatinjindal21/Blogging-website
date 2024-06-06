@@ -11,8 +11,6 @@ CREATE TABLE users (
     dos DATE
 );
 
-drop table blogs;
-
 CREATE TABLE blogs (
     username VARCHAR(50),
     blogid INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,4 +23,52 @@ CREATE TABLE blogs (
     FOREIGN KEY (username)
         REFERENCES users (username)
 );
-select * from blogs;
+select * from bloglikes;
+
+show tables;
+
+CREATE TABLE bloglikes (
+    username VARCHAR(50),
+    blogid INT,
+    FOREIGN KEY (username)
+        REFERENCES users (username),
+    FOREIGN KEY (blogid)
+        REFERENCES blogs (blogid),
+    PRIMARY KEY (username , blogid)
+);
+
+SELECT 
+    b.username,
+    b.blogid,
+    b.blogname,
+    b.blogcontent,
+    b.image,
+    b.postdate,
+    b.commentpermi,
+    b.likes,
+    MAX(CASE WHEN l.username = 'kx_art4' THEN l.username ELSE NULL END) AS liker 
+FROM 
+    blogs b 
+LEFT OUTER JOIN 
+    bloglikes l ON b.blogid = l.blogid
+GROUP BY 
+    b.blogid;
+    
+SELECT 
+    username
+FROM
+    users
+WHERE
+    username LIKE '%ya%' 
+UNION SELECT 
+    name
+FROM
+    users
+WHERE
+    name LIKE '%ya%' 
+UNION SELECT 
+    blogname
+FROM
+    blogs
+WHERE
+    blogname LIKE '%o%';

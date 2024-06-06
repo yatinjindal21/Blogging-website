@@ -1,5 +1,6 @@
 var express = require("express");
 var fileuploader = require("express-fileupload");
+const res = require("express/lib/response");
 var mysql = require("mysql2");
 
 var app = express();
@@ -78,6 +79,7 @@ app.get("/signup-user", function (req, resp) {
    dbCon.query("insert into users values(?,?,?,?,?,?,current_date())", [email, password, username, name, phoneno, ppic], function (err) {
       console.log(err);
       if (err == null) {
+         console.log("done");
          resp.send("done");
       }
       else {
@@ -89,10 +91,10 @@ app.get("/signup-user", function (req, resp) {
 //---------------------------------------------- LOGIN ====================================================
 
 app.get("/login-user", function (req, resp) {
-   var email = req.query.kuchEmail;
+   var username = req.query.kuchUname;
    var password = req.query.kuchPwd;
 
-   dbCon.query("select * from users where email=? or username=?", [email, email], function (err, resultTable) {
+   dbCon.query("select * from users where username=?", [username], function (err, resultTable) {
       if (err == null) {
 
          if (resultTable.length == 1) {
@@ -104,7 +106,7 @@ app.get("/login-user", function (req, resp) {
                resp.send("(Incorrect Password)");
          }
          else
-            resp.send("(Invalid User-ID)");
+            resp.send("(Invalid Username)");
       }
       else {
          resp.send(err.toString());
@@ -180,7 +182,10 @@ app.get("/get-publisher", function (req, resp) {
 
 app.get("/get-all-blogs", function (req, resp) {
 
-   dbCon.query("select * from blogs", function (err, resultTableJSON) {
+   var username = req.query.username;
+
+   dbCon.query("SELECT b.username,b.blogid,b.blogname,b.blogcontent,b.image,b.postdate,b.commentpermi,b.likes,MAX(CASE WHEN l.username = ? THEN l.username ELSE NULL END) AS liker FROM blogs b LEFT OUTER JOIN bloglikes l ON b.blogid = l.blogid GROUP BY b.blogid", [username], function (err, resultTableJSON) {
+
       if (err == null)
          resp.send(resultTableJSON);
       else
@@ -199,5 +204,104 @@ app.get("/get-blog-data", function (req, resp) {
          resp.send(resultTableJSON);
       else
          resp.send(err);
+   })
+})
+
+//---------------------------- DO LIKE =====================================
+
+app.get("/do-blog-like", function (req, resp) {
+
+   var blogid = req.query.blogid;
+   var username = req.query.username;
+   // console.log(req.query);
+
+   dbCon.query("select * from bloglikes where username=? and blogid=?", [username, blogid], function (err, resultTable) {
+      if (err == null) {
+         if (resultTable.length == 1) {
+            dbCon.query("delete from bloglikes where username=? and blogid=?", [username, blogid], function (err) {
+               if (err == null) {
+                  dbCon.query("update blogs set likes=(select count(*) from bloglikes where blogid=?) where blogid=?", [blogid, blogid], function (err) {
+                     if (err == null) {
+                        resp.send("not liked");
+                     }
+                     else {
+                        resp.send(err);
+                     }
+                  })
+               }
+               else {
+                  resp.send(err);
+               }
+            })
+         }
+         else {
+            dbCon.query("insert into bloglikes values(?,?)", [username, blogid], function (err, resultTable) {
+               if (err == null) {
+                  dbCon.query("update blogs set likes=(select count(*) from bloglikes where blogid=?) where blogid=?", [blogid, blogid], function (err) {
+                     if (err == null) {
+                        resp.send("liked");
+                     }
+                     else {
+                        resp.send(err);
+                     }
+                  })
+               }
+               else {
+                  resp.send(err);
+               }
+            })
+         }
+      }
+      else
+         resp.send(err);
+   })
+})
+
+//----------------------------- SEARCH RECORDS ===========================================
+
+app.get("/get-searched-records", function (req, resp) {
+   var tofind = req.query.tofind;
+   var queryString = `SELECT distinct username FROM users WHERE username LIKE ? UNION SELECT distinct name FROM users WHERE name LIKE ? UNION SELECT blogname FROM blogs WHERE blogname LIKE ? LIMIT 10`;
+
+   if (tofind == '') {
+      resp.send('no data');
+   }
+   else {
+      dbCon.query(queryString, [`${tofind}%`, `${tofind}%`, `${tofind}%`], function (err, resultTableJSON) {
+         if (err == null) {
+            resp.send(resultTableJSON);
+         } else {
+            resp.send(JSON.stringify(err));
+         }
+      })
+   }
+})
+
+//--------------------------------- OPEN SEARCHED ONE ======================================
+
+app.get("/open-searched-one", function (req, resp) {
+   var finder = req.query.finder;
+
+   dbCon.query("select * from users where username=? or name=?", [finder,finder], function (err, resultTableJSON) {
+      console.log(resultTableJSON);
+      if (err == null) {
+         if (resultTableJSON.length > 0) {
+            resp.send(resultTableJSON);
+         }
+         else {
+            dbCon.query("select * from blogs where blogname=?", [finder], function (err, resultTableJSON) {
+               console.log(resultTableJSON);
+               if (err == null) {
+                  resp.send(resultTableJSON);
+               }
+               else {
+                  resp.send(err);
+               }
+            })
+         }
+      }
+      else {
+         resp.send(err);
+      }
    })
 })

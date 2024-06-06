@@ -30,7 +30,7 @@
                type: "get",
                url: "/login-user",
                data: {
-                  kuchEmail: email,
+                  kuchUname: email,
                   kuchPwd: password
                }
             }
@@ -55,6 +55,17 @@
                //alert(errKuch);
                $("#lres").html(errKuch);
             })
+         });
+
+         $('input').on('input', function () {
+            var allFilled = true;
+            $('input').each(function () {
+               if ($(this).val() === '') {
+                  allFilled = false;
+                  return false; // Exit each loop early if any input is empty
+               }
+            });
+            $('#submit').prop('disabled', !allFilled);
          });
       });
    </script>
@@ -88,7 +99,7 @@
                      Password?</a></div>
             </div>
             <span id="lres"></span>
-            <button id="submit" type="button" class="btn" style="margin:auto">Log
+            <button id="submit" type="button" class="btn" style="margin:auto" disabled>Log
                in</button>
 
             <div style="text-align: center; margin-top: 30px;">Don't have an account? <a href="/signup.html">Sign up
