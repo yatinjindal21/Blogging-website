@@ -4,18 +4,19 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Bootstrap demo</title>
+   <title>view-blog</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    <link rel="stylesheet" href="style/view-blog.css">
    <script src="script/angular.min.js"></script>
 
-   <script>
+   <!-- <script>
 
       var id = localStorage.getItem("blogID");
 
@@ -36,17 +37,91 @@
             }
          }
       })
-   </script>
+   </script> -->
 </head>
 
-<body ng-app="myModule" ng-controller="myController" ng-init="fetchData()"
-   style="background-image: url(pics/office-581127_1280.jpg);">
+<body style="background-image: url(pics/office-581127_1280.jpg);">
+   <div id="box" style=" background-color: #463942">
+      <div id="title">
+         <center>
+            <span id="titletext">Penguin's World</span>
+         </center>
+      </div>
 
-   <center>
-      <main>
-         <div ng-repeat="obj in jsonArray"></div>
-      </main>
-   </center>
+      <div style="background-color: #c0a6982b;" id="imageblog">
+         <center>
+            <img class="img-fluid" id="images" src="pics/cornelius-ventures-Ak81Vc-kCf4-unsplash.jpg" alt="">
+         </center>
+      </div>
+      <!-- <div
+      style="text-align: right; color:rgba(255, 255, 255, 0.68);font-size: small; font-weight: 500; ">
+      20/04/23</div> -->
+      <div id="content">
+         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt iure ab explicabo similique eos
+         odit, molestiae recusandae tempore, autem fugit laborum est. Inventore eaque repellat officiis cupiditate quod
+         autem recusandae?
+         Nihil illo officia quo repudiandae ex laudantium aliquid beatae deserunt voluptas, in incidunt ullam cupiditate
+         quos reiciendis cum autem doloremque aliquam? Itaque, impedit fugiat facere cumque explicabo consectetur magni
+         eveniet.
+         Est, explicabo quis similique quaerat accusantium quae vero, officia tempore rem aliquam dignissimos nostrum
+         provident aut optio deserunt, dolorum voluptatibus expedita dolore ducimus eius obcaecati perspiciatis. Culpa
+         dolore assumenda voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis repudiandae quo
+         perspiciatis est rerum quas iusto laborum placeat asperiores, nobis ipsum veniam deserunt nostrum explicabo?
+         Assumenda nam temporibus iste necessitatibus.
+         Nemo provident illum quasi vitae veniam, sapiente suscipit voluptatum corporis? Vel necessitatibus praesentium
+         non sunt rerum ea, possimus voluptatibus reprehenderit saepe alias natus cum velit molestiae omnis.
+         Perspiciatis, mollitia eligendi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, excepturi
+         facilis. Quisquam earum nulla, cumque, sed dolorum omnis inventore aut consequatur unde non, minus dicta?
+         Dignissimos dicta in vero amet.
+         Ut, aliquam nobis ullam accusamus architecto suscipit reprehenderit necessitatibus cupiditate repellat deserunt
+         distinctio a enim nesciunt id reiciendis fuga! Repudiandae aspernatur repellendus est voluptate dolor! Fugit
+         architecto est eligendi quae!
+         Recusandae perferendis molestias sunt neque animi nisi repudiandae, facere blanditiis dicta facilis. Architecto
+         rerum voluptate praesentium nisi earum rem necessitatibus accusantium odio. Veritatis, fuga? Quae doloribus
+         illum incidunt repudiandae obcaecati! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis nemo
+         odio distinctio omnis? Facilis obcaecati expedita aut nesciunt eum, laboriosam cum fuga, molestias doloremque
+         quis, dolores consequatur esse aliquid magnam.
+         Iusto sed laudantium neque illum deleniti quo doloremque voluptatibus! Amet non possimus provident a tempora
+         facere quod quis perspiciatis, ex aliquid. Deserunt laudantium aliquam animi temporibus, eos delectus libero
+         explicabo.
+         Rerum facilis voluptates dolor, cum labore eius aspernatur iste. Soluta, consectetur iste error, aliquam
+         laboriosam quam deleniti aspernatur ipsa asperiores recusandae provident saepe sunt? Adipisci sunt dicta sequi
+         vel a!
+         Doloribus quos numquam vitae nihil culpa quibusdam ipsam fugiat consequatur in aliquam, soluta voluptate nam
+         harum nulla maxime unde ullam cupiditate doloremque explicabo vel quis. Alias earum consequatur neque
+         similique?
+         Maxime quia omnis ea eum quasi, corrupti molestias! Eaque dignissimos, dolore voluptatum quia mollitia commodi
+         repellendus enim exercitationem iure adipisci deleniti sed, tempore praesentium? Earum architecto
+         necessitatibus quas temporibus excepturi! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
+         molestias vel eveniet reprehenderit voluptatem harum fugit architecto cumque. Numquam nostrum facere quibusdam
+         inventore error voluptates veritatis perspiciatis asperiores aliquid deleniti!
+         Facere explicabo sapiente, voluptate voluptates magni ullam maxime. Nisi reprehenderit similique pariatur
+         perferendis, ipsa neque dolor libero! Placeat dolore odit quasi! Dolorem qui impedit voluptas corporis cum
+         numquam esse recusandae.
+         Tenetur sit, recusandae quasi quae totam, nam et doloremque laudantium illum praesentium autem blanditiis nulla
+         impedit veritatis saepe veniam, voluptatum numquam distinctio enim maxime. Facilis ad nihil at? Porro,
+         voluptas.
+         <div style="text-align: right;" id="author"><i>~Kinu</i></div>
+      </div>
+      <div id="likesbox"><i class="bi bi-chat-heart"></i> 80  <i class="bi bi-balloon-heart"></i>  40</div>
+      <div id="userprofile"><img src="pics/anete-lusina-zwsHjakE_iI-unsplash.jpg" id="pfp">   <span style=" color: #fdf7b7;
+         font-size: x-large;
+         font-weight: 400; letter-spacing: 1px;">  @kx_art7</span></div>
+
+      <!-- <div id="userprofile"><img src="pics/cornelius-ventures-Ak81Vc-kCf4-unsplash.jpg" id="pfp"> @ketaki</div> -->
+   </div>
+   
+
+   <div style="width: 70%; margin: auto; position: relative; top:-1em;" id="comms">
+      <form action="/blogo" >
+         <label for="comment"></label>
+         <input type="text" id="comment" name="comment" placeholder="Comment Here">
+      </form>
+   </div>
+   <!-- <div style="background-color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias fuga aspernatur eligendi dolor cumque laboriosam animi placeat sint minus iure quia, nesciunt sequi, sed, voluptate odio deserunt voluptates recusandae.
+   Dolor at eveniet cumque incidunt, vitae debitis libero, fuga voluptas aut ipsum enim nemo consequatur saepe distinctio dolorem sapiente quia eligendi commodi reprehenderit adipisci repellendus sit vero. Perspiciatis, dignissimos doloremque.</div> -->
+
+   <script src="viewblog.js"></script>
 </body>
 
 </html>
