@@ -3,29 +3,48 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
+   background-color: white;
+   background-color: white;
+   background: rgb(116,141,146);
+background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%);
+   /* background: rgb(116,141,146);
+   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(211,217,212,1) 100%); */
 }
 
 .navbar {
-   background-color: rgb(121, 125, 98);
-   height: 70px;
+   background-color: rgb(211, 214, 211);
+   background-color: white;
+   /* height: 70px; */
+   padding: 0.9em 1em;
+   /* box-shadow: 0px 0px 20px 0px rgba(112, 112, 112, 0.652); */
+   border-bottom: 2px solid rgba(255, 255, 255, 0.222);
+
    /* box-shadow: -1px -1px 10px rgba(255, 219, 103, 0.845); */
 }
 
 #navbut {
-   border-radius: 0%;
-   border-color: rgb(255, 222, 155);
-   color: rgb(255, 221, 152);
-
+   border-radius:30px;
+   border:none;
+   border-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   background-color: black;
+   padding: 0.5em 1.3em;
 }
-
+#loginbut{
+   border: none; 
+   color: #007daf;
+}
+#loginbut:hover {
+   color: rgb(74, 74, 74);
+}
 #navbut:hover {
-   background-color: #ffcf7790;
+   background-color: rgb(74, 74, 74);
    border: none;
-   color: rgb(0, 0, 0);
+   /* color: rgb(0, 0, 0); */
 }
 
 #maintext {
-   height: 70px;
+   height: 80px;
 }
  
 main {
@@ -37,53 +56,50 @@ main {
    font-size: 60px;
    text-align: center;
    font-family: fantasy;
+   font-weight: lighter;
    margin-top: 120px;
-   color: rgb(255, 206, 107);
-   text-shadow: 1px 1px 5px black;
+   color:#000000;
+   /* text-shadow: 1px 1px 5px #124E66; */
 }
 
 #description {
    font-size: 20px;
-   /* text-align: center; */
-   /* font-weight: lighter; */
-   /* font-family: cursive; */
+
    margin-bottom: 50px;
-   color: rgb(255, 206, 107);
-   text-shadow: 1px 1px 5px black;
+   color:#000000;
+   /* text-shadow: 1px 1px 5px black; */
 
 }
 
 #start {
-   width: 200px;
-   height: 60px;
-   background-color: #ebbc65;
-   color: black;
-   border-radius: 0%;
-   margin-bottom: 20px;
-   padding: 15px;
+   border-radius:30px;
+   border:none;
+   border-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   background-color: black;
+   padding: 0.8em 1.8em;
 }
 
 #start:hover {
-   border-color: #ffe6c7;
-   background-color: #fdbf4b;
-   color: black;
-   /* color: rgb(251, 255, 178); */
-   /*offset-x | offset-y | blur radius | spread radius | color*/
-   box-shadow: 0 0.5em 0.5em -0.4em #ffe6c7;
+   /* border-color: #ffe6c7; */
+   background-color: rgb(74, 74, 74);
+
+   box-shadow: 0 0.5em 0.5em -0.4em #fcfcfc50;
    /*????*/
    /* transform: translateY(-0.25em); */
    cursor: pointer;
-   margin-bottom: 5px;
+   /* margin-bottom: 5px; */
 }
 
 #collage {
    aspect-ratio: 1;
    float: left;
    border-bottom-left-radius: 100%;
-
-   background-color: #f1dca76d;
+   background: rgb(116,141,146);
+   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(211,217,212,1) 100%);
+   /* background-color: #124e6653; */
    /* border: 5px solid #ffcb69; */
-   box-shadow: 0px 0px 30px rgb(255, 206, 107);
+   box-shadow: 0px 0px 30px 0px rgba(211, 214, 211, 0.505);
    border-top: 0px;
    border-right: 0px;
 }
@@ -104,10 +120,10 @@ main {
    top: 6%;
    left: 50%;
    z-index: 2;
-   border: 5px solid rgb(255, 206, 107);
+   border: 5px solid #ffffffc7;
    /* outline-offset: 4px rgb(255, 206, 107);; */
    padding: 10px;
-   background-color: rgba(250, 221, 162, 0.601);
+   background-color: #124e66ab;
 }
 
 #img-2 {
@@ -117,10 +133,10 @@ main {
    left: 15%;
    z-index: 1;
    /* border: 5px solid rgb(255, 206, 107); */
-   border: 5px solid rgb(255, 206, 107);
+   border: 5px solid #ffffffc7;
    /* outline-offset: 4px rgb(255, 206, 107);; */
    padding: 10px;
-   background-color: rgba(250, 221, 162, 0.601);
+   background-color: #124e66ab;
    /* outline-offset: 4px rgb(255, 206, 107);; */
 
 
@@ -132,10 +148,10 @@ main {
    width: 45%;
    top: -17%;
    left: 50%;
-   border: 5px solid rgb(255, 206, 107);
+   border: 5px solid #ffffffc7;
    /* outline-offset: 4px rgb(255, 206, 107);; */
    padding: 10px;
-   background-color: rgba(250, 221, 162, 0.601);
+   background-color: #124e66ab;
 
 }
 
@@ -169,7 +185,7 @@ main {
    background-size: cover;
    background-position: center;
    margin-left: 20px;
-   border: 20px solid #E8AC65;
+   border: 20px solid #124E66;
    z-index: 2;
    margin-top: 25px;
 
@@ -178,7 +194,7 @@ main {
 .accordion-item {
    margin-top: 5px;
    margin-bottom: 5px;
-   background-color: #f1dca774;
+   background-color: #e3e6e4;
 }
 
 .accordion-button {
@@ -186,9 +202,9 @@ main {
    background-color: rgba(241, 220, 167, 0);
    /* border-bottom: 1.5px solid rgb(164, 98, 0,0.5); */
    /* border-top: 1px solid rgb(160, 107, 2); */
-   color: rgb(164, 98, 0, 0.8);
+   color: rgba(0, 0, 0, 0.8);
    font-weight: bold;
-   border: 1px solid #F1DCA7;
+   border: 1px solid #c0c0c0;
    height: 60px;
    font-size: 0.7em;
 
@@ -196,40 +212,25 @@ main {
 }
 
 hr {
-   color: rgb(164, 98, 0, 0.5);
+   color: #6a6969;
 }
 
 .accordion-button:hover {
-   /* background-color: rgb(232, 172, 101, 0.5);
-   color: white;
-   border-top: 1px solid #ffffff;
-   border-bottom: 1px solid #ffffff;
-   font-weight: bold; */
+
    cursor: pointer;
 }
 
-/* .accordion-button:visited{
-   background-color: black;
-   
-} */
-/* .accordion-button:active{
-   background-color: rgb(232, 172, 101);
-   color:white;
-   
-
-
-} */
 .accordion-button:focus {
    border: none;
    outline: none;
    box-shadow: none;
    background-color: rgba(83, 72, 43, 0);
-   color: rgb(164, 98, 0, 0.8);
+   color: rgba(0, 0, 0, 0.8);
 }
 
 .accordion-body {
    /* background-color: rgb(232, 172, 101, 0.5); */
-   color: rgb(160, 107, 2);
+   color: rgb(0, 0, 0);
    /* font-weight: bold; */
    /* margin: 20px; */
    background: none;
@@ -244,18 +245,16 @@ hr {
    bottom: -50%;
    left: -10%;
    /* right: 0px;  */
-   border: 20px solid rgba(232, 173, 101, 0.749);
+   border: 20px solid #124e66ab;
    border-left: 0px;
    z-index: -1;
-   /* Behind element */
-   /* border-top-right-radius: 100%;
-   border-bottom-right-radius: 100%; */
+
    margin-top: 10px;
 
 }
 
 #three {
-   border: 20px solid rgba(232, 173, 101, 0.411);
+   border: 20px solid #124e664c;
    height: 290px;
    width: 35%;
    top: 110%;
@@ -338,3 +337,12 @@ hr {
       height: 50px;
    }
 } */
+footer{
+   background-color: black;
+   color: white;
+   display: flex;
+   padding: 1em;
+   justify-content: center; /*******/
+   align-items: center; /*******/
+   font-size: 12px;
+}
