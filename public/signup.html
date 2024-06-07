@@ -48,9 +48,10 @@
 
             $.ajax(obj).done(function (respkuch) {
                console.log(respkuch);
+               localStorage.setItem("activeID", $("#uname").val());
                location.href = "home.html";
             }).fail(function (errKuch) {
-               //alert(errKuch);
+               alert(errKuch);
                console.log(errKuch);
             })
          });
@@ -143,7 +144,7 @@
                   style="background-color: rgba(255, 253, 251, 0.503);">
             </div>
 
-            <button id="submit" type="button" class="btn">Register</button>
+            <button id="submit" type="button" class="btn" disabled>Register</button>
          </div>
       </div>
    </form>

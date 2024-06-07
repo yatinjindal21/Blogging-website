@@ -65,6 +65,27 @@ body {
    height: 100%;
 }
 
+#cover-screen {
+   margin-left: 200px;
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   background-color: rgba(0, 0, 0, 0.586);
+   display: none;
+   transition: ease 1s;
+}
+
+#searchbar {
+   height: 100%;
+   width: 25%;
+   border-left: 5px outset #ded3bcdc;
+   position: fixed;
+   left: 100%;
+   background-color: #ffdfa09f;
+   box-shadow: 0px 0px 15px;
+   transition: ease 1s;
+}
+
 #user-pic:hover {
    transform: scale(1.1);
 }
@@ -77,10 +98,72 @@ body {
    background-color: #ffffff99;
    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.27);
    border-radius: 10px;
+   cursor: pointer;
 }
 
 .nav-icons2:active {
    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.395);
+}
+
+#search-box {
+   width: 90%;
+   height: 40px;
+   margin-top: 25px;
+   margin-bottom: 2px;
+   border-radius: 20px;
+   background-color: white;
+}
+
+.glow-search {
+   border: 1px solid #0077ff;
+   box-shadow: 0px 0px 10px #0077ff;
+   transition: ease-in-out 0.1s;
+}
+
+.glow-icon {
+   color: #0077ff;
+   transition: ease 0.1s;
+}
+
+#searching {
+   width: 85%;
+   height: 100%;
+   border-radius: 0px 20px 20px 0px;
+   float: right;
+   border: none;
+}
+
+#searching:focus {
+   padding-right: 10px;
+   outline: none;
+}
+
+.bi-search {
+   width: 15%;
+   font-size: x-large;
+}
+
+#search-list {
+   width: 90%;
+   height: auto;
+   border: 2px solid #371f1b61;
+   border-radius: 20px;
+   background-color: #fbe1b0b4;
+   display: none;
+   cursor: pointer;
+}
+
+#search-item {
+   width: 100%;
+   font-size: large;
+   border-bottom: 2px solid #4f2c26c0;
+   border-radius: 20px;
+   padding: 5px;
+   cursor: pointer;
+}
+
+#search-item:hover {
+   background-color: #2a191017;
 }
 
 @media screen and (orientation:landscape) {

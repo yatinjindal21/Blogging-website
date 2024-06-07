@@ -13,32 +13,16 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    <link rel="stylesheet" href="style/home.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <script>
-      //------------------------ home button--------------------------------
-      window.onload=function(){
-         const button = document.getElementById("home-button");
-         button.click();
-      }
-
-      $(document).ready(function () {
-         //--------------------------------Navbar ---------------------------
-         $(window).resize(function () {
-            if ($(window).width() > $(window).height()) {
-               $('#nav-control').removeClass('fixed-bottom');
-            }
-            else {
-               $('#nav-control').addClass('fixed-bottom');
-            }
-         });
-
-         var au = localStorage.getItem("activeID");
-         $("#username").val(au);
-      });
-
-   </script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <script src="script/angular.min.js"></script>
 </head>
 
+<<<<<<< HEAD
 <body >
+=======
+<body ng-app="myModule" ng-controller="myController"
+   style="background-image: url(pics/photo-1609972542679-801af2bbd56e.avif);">
+>>>>>>> ae93732294ba8a24e0256fa74f87d241a68440bf
 
    <input type="hidden" id="username" name="username">
 
@@ -53,7 +37,8 @@
                   type="button" data-bs-toggle="dropdown" aria-expanded="false">
                <ul class="dropdown-menu mt-1">
                   <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user me-2"></i>Profile</a></li>
-                  <li><a class="dropdown-item" href="create-blog.html"><i class="fa-solid fa-blog me-2"></i>Create a Blog</a></li>
+                  <li><a class="dropdown-item" href="create-blog.html"><i class="fa-solid fa-blog me-2"></i>Create a
+                        Blog</a></li>
                   <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear me-2"></i>Settings</a></li>
                </ul>
             </div>
@@ -63,8 +48,10 @@
 
    <!-- -------------------------------BOTTOM NAV-BAR (SMALL SCREEN)--------------------------------------- -->
    <div class="col-md-12" style="height: 70px;"></div>
-   <div class="row fixed-bottom bg-gradient" id="nav-control" style="height: 60px; background-color: #ffcb697c;box-shadow: 0px 0px 10px black;">
-      <div class="col d-flex justify-content-center"><i class="fa-solid fa-house fa-2x p-3"></i></div>
+   <div class="row fixed-bottom bg-gradient" id="nav-control"
+      style="height: 60px; background-color: #ffcb697c;box-shadow: 0px 0px 10px black;">
+      <div class="col d-flex justify-content-center"><a href="display-blogs.html" target="screen"><i
+               class="fa-solid fa-house fa-2x p-3"></i></a></div>
       <div class="col d-flex justify-content-center"><i class="fa-solid fa-magnifying-glass fa-2x p-3"></i></div>
       <div class="col d-flex justify-content-center"><i class="fa-solid fa-bell fa-2x p-3"></i></div>
    </div>
@@ -72,13 +59,20 @@
    <div id="navl">
       <div class="d-flex flex-row" style="height: calc(100vh - 70px);">
          <div class="p-1 flex-shrink-1 bg-gradient" id="nav-control2">
+<<<<<<< HEAD
             <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="home-button" href="view-blog.html" target="screen"
                style="height: 16.66%;text-decoration: none; color: black;"><i class="fa-solid fa-house fa-2x"></i><span
                   class="nav-name ms-3"><b>Home</b></span>
+=======
+            <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="home-button" href="display-blogs.html"
+               target="screen" style="height: 16.66%;text-decoration: none; color: black;"><i
+                  class="fa-solid fa-house fa-2x"></i><span class="nav-name ms-3"><b>Home</b></span>
+>>>>>>> ae93732294ba8a24e0256fa74f87d241a68440bf
             </a>
-            <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
+            <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="search-button"
+               style="height: 16.66%;text-decoration: none; color: black;"><i
                   class="fa-solid fa-brands fa-searchengin fa-2x"></i><span class="nav-name ms-3"><b>Search</b></span>
-            </div>
+            </a>
             <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
                   class="fa-solid fa-bell fa-2x"></i><span class="nav-name ms-3"><b>Notifications</b></span>
             </div>
@@ -95,11 +89,151 @@
                   class="nav-name ms-3"><b>Profile</b></span>
             </div>
          </div>
-         <iframe name="screen" id="screen"></iframe>
 
+         <!-------------------------------------SCREEN-------------------------------------->
+         <iframe name="screen" id="screen"></iframe>
+         <div id="cover-screen"></div>
+
+         <div id="searchbar" name="searchbar">
+            <center>
+               <div class="d-flex flex-row align-items-center" id="search-box">
+                  <i class="bi bi-search"></i>
+                  <input type="search" name="searching" id="searching" ng-enter="opensearched(value)"
+                     ng-keyup="fetchsearched($event)">
+               </div>
+               <div id="search-list">
+                  <div id="search-item" ng-repeat="obj in jsonArray" ng-click="opensearched(obj.username);">
+                     {{obj.username}}</div>
+                  <!-- <div id="search-item">yatin_jindal21</div> -->
+               </div>
+            </center>
+         </div>
       </div>
+
    </div>
 
+
+   <!--=========================================================================================================================================-->
+
+
+
+
+   <script>
+      //------------------------ home button--------------------------------
+      window.onload = function () {
+         const button = document.getElementById("home-button");
+         button.click();
+      };
+
+      //--------------------------- open search------------------------------------
+      const search = document.querySelector('#search-button');
+      const searchbar = document.querySelector('#searchbar');
+      const cover = document.querySelector('#cover-screen');
+
+      search.addEventListener('click', function () {
+
+         const w = searchbar.style.left;
+
+         if (w === '75%') {
+            searchbar.style.left = '100%';
+            cover.style.display = "none";
+         }
+         else {
+            searchbar.style.left = '75%';
+            cover.style.display = "block";
+         }
+      });
+
+
+      $(document).ready(function () {
+         //--------------------------------Navbar ---------------------------
+         $(window).resize(function () {
+            if ($(window).width() > $(window).height()) {
+               $('#nav-control').removeClass('fixed-bottom');
+            }
+            else {
+               $('#nav-control').addClass('fixed-bottom');
+            }
+         });
+
+         $('#searching').focusin(function () {
+            $('.bi-search').addClass('glow-icon');
+            $('#search-box').addClass('glow-search');
+            $('#search-list').css('display', 'block');
+         })
+
+         $('#searching').focusout(function () {
+            $('.bi-search').removeClass('glow-icon');
+            $('#search-box').removeClass('glow-search');
+            // $('#search-list').css('display', 'none');
+         })
+
+         var au = localStorage.getItem("activeID");
+         $("#username").val(au);
+
+         localStorage.setItem("activeID", au);
+      });
+
+      var module = angular.module("myModule", []);
+
+      module.directive('ngEnter', function () {
+         return function (scope, element, attrs) {
+            element.bind("keydown keypress", function (event) {
+               if (event.which === 13) { // 13 is the Enter key code
+                  scope.$apply(function () {
+                     scope.$eval(attrs.ngEnter, { 'value': element.val() });
+                  });
+                  event.preventDefault();
+               }
+            });
+         }
+      });
+
+      module.controller("myController", function ($scope, $http) {
+
+         $scope.jsonArray;
+         $scope.fetchsearched = function (event) {
+            var url = "/get-searched-records?tofind=" + event.target.value;
+            $http.get(url).then(done, fail);
+            function done(response) {
+
+               if (response.data == 'no data') {
+                  $('#search-list').css('display', 'none');
+               }
+               else {
+                  if (response.data == null) {
+                     $('#search-list').css('display', 'none');
+                  }
+                  else {
+                     $('#search-list').css('display', 'block');
+                     $scope.jsonArray = response.data;
+                  }
+               }
+            }
+            function fail(response) {
+               alert(response);
+            }
+         };
+
+         $scope.opensearched = function (uname) {
+            console.log(uname)
+            var url = "/open-searched-one?finder=" + uname;
+            $http.get(url).then(done, fail);
+            function done(response) {
+               // alert("helooo")
+               // if(response.length()==7){
+               //    alert("its a user");
+               // }
+               // else{
+               //    alert("its a blog");
+               // }
+            }
+            function fail(response) {
+
+            }
+         };
+      });
+   </script>
 </body>
 
 </html>
