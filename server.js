@@ -1,10 +1,21 @@
 var express = require("express");
 var fileuploader = require("express-fileupload");
-const res = require("express/lib/response");
+// const res = require("express/lib/response");
 var mysql = require("mysql2");
+const path=require('path');
+const ejsMate=require('ejs-mate');
+
+const dbCon = require('./config/db');
+
 
 var app = express();
 exports.app = app;
+
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
+app.engine('ejs',ejsMate);
+
+
 
 app.listen(2004, function () {
    console.log("server started");
@@ -13,8 +24,12 @@ app.listen(2004, function () {
 app.use(express.static("public"));
 app.use(fileuploader());
 
-app.get("/", function (req, resp) {
-   resp.sendFile(process.cwd() + "/public/index.html");
+app.use(express.urlencoded(true));
+
+
+app.get("/", function (req, res) {
+   // resp.sendFile(process.cwd() + "/public/index.html");
+   // res.render('index');
 })
 
 app.get("/login", function (req, resp) {
@@ -25,41 +40,52 @@ app.get("/signup", function (req, resp) {
    resp.sendFile(process.cwd() + "/public/signup.html");
 })
 
-app.get("/home", function (req, resp) {
-   resp.sendFile(process.cwd() + "/public/home.html");
+app.get("/home", function (req, res) {
+   // resp.sendFile(process.cwd() + "/public/home.html");
+   res.render('home');
 })
 
-app.get("/create-blog", function (req, resp) {
-   resp.sendFile(process.cwd() + "/public/create-blog.html");
+app.get("/create-blog", function (req, res) {
+   // resp.sendFile(process.cwd() + "/public/create-blog.html");
+   res.render('blog/create');
 })
 
-app.get("/display-blogs", function (req, resp) {
-   resp.sendFile(process.cwd() + "/public/display-blogs.html");
+app.get("/display-blogs", function (req, res) {
+   // resp.sendFile(process.cwd() + "/public/display-blogs.html");
+   res.render('blog/index');
+
 })
 
-app.get("/view-blog", function (req, resp) {
-   resp.sendFile(process.cwd() + "/public/view-blog.html");
+app.get("/view-blog/:id", function (req, res) {
+   // resp.sendFile(process.cwd() + "/public/view-blog.html");
+   const {id}=req.params;
+   query='SELECT blogs.*, users.name FROM blogs JOIN users ON blogs.username=users.username WHERE blogid=?';
+   dbCon.query(query,[id],(err,blog)=>{
+      if(err){res.send(err);}
+      console.log(blog);
+      res.render('blog/show',{ blog: blog[0] });
+   })
+
+
 })
 
 //---------------------------DB Operations-------------------
 //================Database Connectivity============
-var dbConfig = {
-   host: "127.0.0.1",
-   user: "root",
-   password: "Jindal@2004",
-   database: "youandme",
-   dateStrings: true
-}
+// var dbConfig = {
+//    host: "127.0.0.1",
+//    user: "root",
+//    password: "Penguin@2004",
+//    database: "youandme",
+//    dateStrings: true
+// }
 
-var dbCon = mysql.createConnection(dbConfig);
-dbCon.connect(function (err) {
-   if (err == null)
-      console.log("Connected Successfulllyyy...");
-   else
-      console.log(err);
-})
-
-app.use(express.urlencoded(true));
+// var dbCon = mysql.createConnection(dbConfig);
+// dbCon.connect(function (err) {
+//    if (err == null)
+//       console.log("Connected Successfulllyyy...");
+//    else
+//       console.log(err);
+// })
 
 
 //-------------------------------------------- SIGN-UP ===========================================
@@ -81,7 +107,7 @@ app.get("/signup-user", function (req, resp) {
       if (err == null) {
          console.log("done");
          resp.send("done");
-      }
+      }    
       else {
          resp.send(err.toString());
       }
@@ -136,7 +162,7 @@ app.get("/chk-email", function (req, resp) {
 
 //------------------------------ POST-BLOG ==================================
 
-app.post("/post-blog", function (req, resp) {
+app.post("/post-blog", function (req, res) {
 
    var fileName = "nopic.jpg";
    if (req.files != null) {
@@ -153,15 +179,17 @@ app.post("/post-blog", function (req, resp) {
 
    console.log(req.body);
 
-   dbCon.query("insert into blogs(username,blogname,blogcontent,image,postdate,commentpermi) values(?,?,?,?,current_date(),?)", [uname, title, content, fileName, comments], function (err) {
+   dbCon.query("insert into blogs(username,blogname,blogcontent,image,postdate,commentpermi) values(?,?,?,?,current_date(),?)", [uname, title, content, fileName, comments], function (err,table) {
 
       if (err == null) {
-         resp.send("blog posted");
+         const id=table.insertId;
+         res.redirect(`/view-blog/${id}`);
       }
       else {
-         resp.send(err.toString());
+         res.send(err.toString());
       }
    })
+
 })
 
 //-------------------------- GET-PUBLISHER-NAME ==========================
