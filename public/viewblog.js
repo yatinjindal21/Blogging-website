@@ -11,14 +11,15 @@ form.addEventListener('submit',function(e){
     user.style.height='2.5em';
     newdiv.style.backgroundColor='black';
     newdiv.style.color='white';
-    newdiv.style.backgroundColor='#2e272c96';
+    newdiv.style.backgroundColor='#124E66';
     user.style.textAlign='center';
     user.style.color='white';
     user.style.paddingTop='0.2em';
+    user.style.marginTop='5px'
     newdiv.style.paddingTop='1em';
     newdiv.style.paddingLeft='1em';
-    user.style.backgroundColor='#2e272c96';
-    user.style.border='0.6px solid white';
+    user.style.backgroundColor='#2E3944';
+    newdiv.style.border='0.6px solid white';
     newdiv.style.height='3em';
 
     newdiv.innerText=cat;

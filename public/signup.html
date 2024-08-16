@@ -13,11 +13,75 @@
    <link rel="stylesheet" href="style/signlog.css">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
    <link
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
       rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<!--===========================================================================================================================================-->
+
+<body class="container-xxl">
+   <div id="title" style=" height: 1.7em; font-size: 1.7em; font-weight:500;">
+      Welcome to <span style="text-shadow: 1px 1px 1px #0096d2;">Blogospy</span>
+
+   </div>
+   <form style="margin-top:2.5em;">
+
+      <div id="box" style="margin-bottom: 20px;">
+         <div class="container" style="padding-left: 2.2em; padding-right: 2.2em;  " id="formcontent">
+            <div id="create"> Create an account or <a style="color: #007daf;" href="/login.html">log in</a></div>
+            <div class="form-group" style="margin-top: 0.8em;">
+               <label for="inputemail">Email address <span id="emailres">*</span></label>
+               <input type="email" class="form-control" id="inputemail" name="inputemail" aria-describedby="emailHelp"
+                  required style="background-color: rgba(255, 253, 251, 0.503);">
+               <small id="emailHelp" class="form-text " style="color:#436E7C;">We'll never share your email with
+                  anyone else.</small>
+            </div>
+            <div class="row">
+               <div class="col-sm-6 ">
+                  <label for="fname">First Name</label>
+                  <input type="text" class="form-control" id="fname" name="fname"
+                     style="background-color: rgba(255, 253, 251, 0.503);">
+               </div>
+               <div class="col-sm-6">
+                  <label for="lname">Last Name</label>
+                  <input type="text" class="form-control" id="lname" name="lname"
+                     style="background-color: rgba(255, 253, 251, 0.503);">
+               </div>
+            </div>
+            <div class="row" style="margin-top: 1em;">
+               <div class="col">
+                  <label for="uname">User Name</label>
+                  <input type="text" class="form-control" id="uname" name="uname"
+                     style="background-color: rgba(255, 253, 251, 0.503);">
+               </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1em;">
+               <label for="inputpassword">Password</label>
+               <input type="password" class="form-control" id="inputpassword" name="inputpassword"
+                  aria-describedby="passcheck" style="background-color: rgba(255, 253, 251, 0.503);">
+               <small id="passcheck" class="form-text" style="color:#436E7C;">Minimum 6 characters.</small>
+            </div>
+
+            <div class="form-group">
+               <label for="inputnumber">Phone No.</label>
+               <input type="tel" class="form-control" id="inputnumber" name="inputnumber" aria-describedby="phone"
+                  style="background-color: rgba(255, 253, 251, 0.503);">
+            </div>
+
+            <button id="submit" type="button" class="btn" disabled>Register</button>
+         </div>
+         <div id="sidepic" style="background-image: url(pics/coffee-568968_1280.jpg); background-size: cover;">
+         </div>
+      </div>
+   </form>
+   <br>
+
+   <!--=============================================================================================================================================-->
 
    <script>
       $(document).ready(function () {
@@ -86,69 +150,8 @@
             });
             $('#submit').prop('disabled', !allFilled);
          });
-
       });
    </script>
-</head>
-
-<!--===========================================================================================================================================-->
-
-<body id="bodybg"  >
-   <div id="title" style=" height: 2em; font-size: 1.7em; font-weight:500;">
-      Welcome to Blogospy
-
-   </div>
-   <form style="margin-top:2.5em;">
-
-      <div id="box" style="margin-bottom: 20px;padding-bottom: 2em;  ">
-         <div class="container" style="padding-left: 2.2em; padding-right: 2.2em;  " id="formcontent">
-            <div id="create"> Create an account or <a href="/login.html">log in</a></div>
-            <div class="form-group" style="margin-top: 0.8em;">
-               <label for="inputemail">Email address <span id="emailres">*</span></label>
-               <input type="email" class="form-control" id="inputemail" name="inputemail" aria-describedby="emailHelp"
-                  required style="background-color: rgba(255, 253, 251, 0.503);">
-               <small id="emailHelp" class="form-text " style="color:rgb(97, 97, 97);">We'll never share your email with
-                  anyone
-                  else.</small>
-            </div>
-            <div class="row">
-               <div class="col-sm-6 ">
-                  <label for="fname">First Name</label>
-                  <input type="text" class="form-control" id="fname" name="fname"
-                     style="background-color: rgba(255, 253, 251, 0.503);">
-               </div>
-               <div class="col-sm-6">
-                  <label for="lname">Last Name</label>
-                  <input type="text" class="form-control" id="lname" name="lname"
-                     style="background-color: rgba(255, 253, 251, 0.503);">
-               </div>
-            </div>
-            <div class="row" style="margin-top: 1em;">
-               <div class="col">
-                  <label for="uname">User Name</label>
-                  <input type="text" class="form-control" id="uname" name="uname"
-                     style="background-color: rgba(255, 253, 251, 0.503);">
-               </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 1em;">
-               <label for="inputpassword">Password</label>
-               <input type="password" class="form-control" id="inputpassword" name="inputpassword"
-                  aria-describedby="passcheck" style="background-color: rgba(255, 253, 251, 0.503);">
-               <small id="passcheck" class="form-text" style="color:rgb(97, 97, 97);">Minimum 6 characters.</small>
-            </div>
-
-            <div class="form-group">
-               <label for="inputnumber">Phone No.</label>
-               <input type="tel" class="form-control" id="inputnumber" name="inputnumber" aria-describedby="phone"
-                  style="background-color: rgba(255, 253, 251, 0.503);">
-            </div>
-
-            <button id="submit" type="button" class="btn" disabled>Register</button>
-         </div>
-      </div>
-   </form>
-   <br>
 </body>
 
 
