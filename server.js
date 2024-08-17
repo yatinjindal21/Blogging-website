@@ -67,7 +67,7 @@ app.get("/view-blog/:id", function (req, res) {
    dbCon.query(query,[id],(err,blog)=>{
       if(err){res.send(err);}
       console.log(blog);
-      res.render('blog/show',{ blog: blog[0] });
+      res.render('blog/view',{ blog: blog[0] });
    })
 
 
@@ -213,9 +213,9 @@ app.get("/get-publisher", function (req, resp) {
 
 //-------------------------- SHOW ALL BLOGS =================================
 
-app.get("/show-all-blogs", function (req,res){
-   res.render('blog/index');
-})
+// app.get("/show-all-blogs", function (req,res){
+//    res.render('blog/index');
+// })
 
 //-------------------------- GET ALL BLOGS ===============================
 
@@ -348,5 +348,5 @@ app.get("/open-searched-one", function (req, resp) {
 
 app.post('/view-blog/:id/comment',(req,res)=>{
    const body=req.body.comment;
-   
+   console.log(req.query);
 })

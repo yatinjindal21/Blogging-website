@@ -26,11 +26,12 @@
 <body class="d-flex flex-column vh-100">
     <input type="hidden" id="username" name="username">
     <%-include('../partials/navbar')%>
-        <div class="d-flex flex-row" style="height: calc(100vh - 70px);">
+        <div class="d-flex flex-row " >
             <%-include('../partials/leftNav')%>
-                <main class="container">
+                <main id="screen" class="d-flex align-items-center justify-content-center" style="margin-top: 70px; background-color: #124E66;">
+                    <div class="container">
                     <%-body%>
-
+                </div>
                 </main>
                 <%-include('../partials/search')%>
 

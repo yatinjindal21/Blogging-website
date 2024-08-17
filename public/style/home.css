@@ -40,6 +40,7 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
+   top: 70px;
    position: fixed;
    /* background-color: #ffffffa1; */
    /* color:white; */
@@ -47,6 +48,7 @@ body {
    flex-direction: column;
    background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%);
    width: 200px;
+   z-index: 1000;
 }
 
 /* #navl{

@@ -1,0 +1,51 @@
+<% layout('layout/boilerplate') %>
+    <link rel="stylesheet" href="/style/view-blog.css">
+    <div id="box">
+        <div id="title">
+            <center>
+                <span id="titletext">
+                    <%=blog.blogname%>
+                </span>
+            </center>
+        </div>
+        <div style="background-color: #c0a6982b;" id="imageblog">
+            <center>
+                <img class="img-fluid" id="images" src="/uploads/<%=blog.image%>" alt="">
+            </center>
+        </div>
+        <div style="width: 90%; margin: auto;">
+            <div id="content">
+                <%=blog.blogcontent%>
+                    <div style="text-align: right;" id="author"><i>
+                            <%=blog.name%>
+                        </i></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 1em; margin-bottom: 2em;">
+                <div id="userprofile"><img src="pics/anete-lusina-zwsHjakE_iI-unsplash.jpg" id="pfp">
+                    <span style=" color: #ffffff; font-size: x-large; font-weight: 400; letter-spacing: 1px;">
+                        <%=blog.username%>
+                    </span>
+                </div>
+                <div id="likesbox"><i class="bi bi-chat-heart"></i>
+                    <%=blog.likes%> <i class="bi bi-balloon-heart"></i> 40
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="width: 70%; margin: auto;" id="comms">
+        <form id="formAction" method="post">
+           <label for="comment"></label>
+           <input type="text" class="form-control" id="comment" name="comment" placeholder="Comment Here">
+
+           <button type="submit" class="btn btn-primary mb-2 mt-1">Submit</button>
+    </form>
+</div>
+<script>
+    document.getElementById('formAction').addEventListener('submit',function(event){
+        event.preventDefault();
+        const username=document.getElementById('username').value;
+        this.action = `/view-blog/<%=blog.blogid%>/comment?username=${username}`;
+        this.submit();
+    })
+</script>
