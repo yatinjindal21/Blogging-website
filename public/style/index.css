@@ -56,19 +56,19 @@ main {
 }
 
 #desc-head {
-   font-size: 60px;
+   font-size: 55px;
    text-align: center;
    font-family: fantasy;
    font-weight: lighter;
-   margin-top: 120px;
+   margin-top: 80px;
+   margin-right: 20px;
    color: #000000;
    /* text-shadow: 1px 1px 5px #124E66; */
 }
 
 #description {
    font-size: 20px;
-
-   margin-bottom: 50px;
+   margin-bottom: 40px;
    color: #000000;
    /* text-shadow: 1px 1px 5px black; */
 
@@ -95,16 +95,17 @@ main {
 }
 
 #collage {
-   aspect-ratio: 1;
+   aspect-ratio: 1.2/1;
    float: left;
    border-bottom-left-radius: 100%;
-   background: rgb(116, 141, 146);
-   background: linear-gradient(0deg, rgba(116, 141, 146, 1) 0%, rgba(211, 217, 212, 1) 100%);
+   background: rgba(116, 141, 146, 0);
+   /* background: linear-gradient(0deg, rgba(116, 141, 146, 1) 0%, rgba(211, 217, 212, 1) 100%); */
    /* background-color: #124e6653; */
-   /* border: 5px solid #ffcb69; */
-   box-shadow: 0px 0px 30px 0px rgba(211, 214, 211, 0.505);
+   border: 50px solid #748D92;
+   /* box-shadow: 0px 0px 30px 0px rgba(211, 214, 211, 0.505); */
    border-top: 0px;
    border-right: 0px;
+   border-bottom: 0px;
 }
 
 /* 
@@ -241,19 +242,16 @@ hr {
 
 }
 
-#two {
+/* #two {
    position: absolute;
    height: 390px;
    width: 45%;
    bottom: -50%;
    left: -10%;
-   /* right: 0px;  */
    border: 20px solid #124e66ab;
    border-left: 0px;
    z-index: -1;
-
    margin-top: 10px;
-
 }
 
 #three {
@@ -263,9 +261,8 @@ hr {
    top: 110%;
    left: 25%;
    position: absolute;
-   /* bottom:0px; */
    z-index: -1;
-}
+} */
 
 @media(max-width:1254px) {
    #one {
