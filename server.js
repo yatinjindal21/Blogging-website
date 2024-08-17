@@ -4,6 +4,9 @@ var fileuploader = require("express-fileupload");
 var mysql = require("mysql2");
 const path=require('path');
 const ejsMate=require('ejs-mate');
+const bodyParser = require('body-parser');
+
+
 
 const dbCon = require('./config/db');
 
@@ -23,8 +26,9 @@ app.listen(2004, function () {
 
 app.use(express.static("public"));
 app.use(fileuploader());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded(true));
+
 
 
 app.get("/", function (req, res) {
@@ -337,6 +341,12 @@ app.get("/open-searched-one", function (req, resp) {
       }
       else {
          resp.send(err);
-      }
+      }t
    })
+})
+
+
+app.post('/view-blog/:id/comment',(req,res)=>{
+   const body=req.body.comment;
+   
 })
