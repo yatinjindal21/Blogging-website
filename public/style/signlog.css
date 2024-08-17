@@ -3,24 +3,17 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
-   /* filter: blur(8px); */
-   /* background: rgb(116,141,146);
-   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%); */
-   background: rgb(211,217,212);
-background: linear-gradient(0deg, rgba(211,217,212,1) 0%, rgba(255,255,255,1) 100%);
- 
-   background-color: white;
-   backdrop-filter: blur(3px);
+
+   /* background: rgb(211,217,212); */
+   /* background: repeating-linear-gradient(45deg, #748D92 0%, #D3D9D4 100%); */
+   background-color: #748D92;
 }
 
 #title {
- 
+
    text-align: center;
-   text-shadow: 1px 1px 5px #ffffff; 
-
-   padding-top: 1.2em;
- 
-
+   text-shadow: 1px 1px 3px #ffffff;
+   padding-top: 0.8em;
 }
 
 #create {
@@ -30,7 +23,7 @@ background: linear-gradient(0deg, rgba(211,217,212,1) 0%, rgba(255,255,255,1) 10
    /* color:white; */
 }
 
-#logintitle{
+#logintitle {
    /* color: #007daf; */
    font-weight: 500;
    padding-top: 0.8em;
@@ -42,19 +35,20 @@ background: linear-gradient(0deg, rgba(211,217,212,1) 0%, rgba(255,255,255,1) 10
    color: black;
    font-weight: 450;
    /* padding:30px; */
+   /* border-left: 5px solid #2E3944; */
 }
 
 #submit {
    display: block;
    margin: auto;
-   border-radius:30px;
+   border-radius: 30px;
    color: rgb(255, 255, 255);
-   background-color: #000000;
+   background-color: #212A31;
    /* margin-bottom: 20px; */
    width: 8em;
-  
+
    margin-top: 1.5em;
-   margin-bottom: 0;
+   margin-bottom: 1.5em;
    padding: 0.5em 1.3em;
 
 }
@@ -77,27 +71,41 @@ background: linear-gradient(0deg, rgba(211,217,212,1) 0%, rgba(255,255,255,1) 10
    /* margin-bottom: 30px;  */
    /* padding-bottom:1.3em; */
    /* height: 420px; */
-   width: 35em;
+   width: 60em;
    /* box-shadow: 0 0.5em 0.5em -0.4em rgba(0, 0, 0, 0.524); */
-   border: 1px solid #a2a9a367;
-   box-shadow: 0 0.5em 0.5em -0.4em #0000004c;
+   /* border: 1px solid #a2a9a367; */
+   box-shadow: 0px 0px 35px #2B5E71;
    /* box-shadow: 0px 0px 15px 0px #00000044; */
-
-   background-color: #D3D9D4;
-   color:white;
-   background-color: #D3D9D4;
-   border-radius: 5px;
+   display: flex;
+   flex-direction: row;
+   background-color: white;
+   color: white;
+   border-bottom: 7px groove #2E3944;
+   /* border-radius: 5px; */
 }
-#box1{
-   padding: 1em 1.5em;
+
+#box1 {
+   /* padding: 1em 1.5em; */
    margin-left: auto;
    margin-right: auto;
-   width: 25em;
-   border: 1px solid #a2a9a367;
+   width: 45em;
+   /* border: 1px solid #a2a9a367; */
+   display: flex;
+   flex-direction: row;
+   box-shadow: 0px 0px 35px #2B5E71;
+   background-color: white;
+   border-bottom: 7px groove #2E3944;
+   /* border-radius: 5px; */
+}
 
-   box-shadow: 0 0.5em 0.5em -0.4em #0000004c;
-   background-color: #D3D9D4;
-   border-radius: 5px;
+#sidepic {
+   width: 40em;
+   height: inherit;
+}
+
+#sidepic2 {
+   width: 30em;
+   height: inherit;
 }
 
 a {
@@ -107,14 +115,16 @@ a {
    /* text-shadow: 1px 1px 1px rgb(0, 0, 0); */
 
 }
-#passfor{
-   color:rgb(43, 43, 43);
-   
+
+#passfor {
+   color: rgb(43, 43, 43);
+
    font-size: small;
    font-weight: 400;
 }
-#passfor:hover{
-   color:#515151b0;
+
+#passfor:hover {
+   color: #515151b0;
    /* font-size: small; */
 }
 
@@ -132,24 +142,53 @@ input {
 
 
 @media(max-width:992px) {
-   /* #title {
-      margin-top: 15%;
-   } */
-}
-
-@media(max-width:576px){
    #box {
-      padding: 15px;
-      width: 28em;
-      
+      /* padding: 15px; */
+      width: 85%;
+
       margin: auto;
       margin-bottom: 30px;
-     
-
    }
 
-   #bodybg {
-      background-position: right;
+   #box1 {
+      /* padding: 15px; */
+      width: 85%;
+
+      margin: auto;
+      margin-bottom: 30px;
+   }
+
+   #sidepic {
+      width: 50%;
+   }
+}
+
+@media(max-width:576px) {
+   #box {
+      /* padding: 15px; */
+      width: 85%;
+
+      margin: auto;
+      margin-bottom: 30px;
+   }
+
+   #box1 {
+      width: 85%;
+      margin: auto;
+      margin-bottom: 30px;
+      border-left: 10px groove #2E3944;
+   }
+
+   #formcontent {
+      border-left: 10px solid #2E3944;
+   }
+
+   #sidepic {
+      display: none;
+   }
+
+   #sidepic2 {
+      display: none;
    }
 
 }
@@ -163,12 +202,11 @@ input {
       width: 85%;
       padding-left: 0;
       padding-right: 0;
-
    }
-   #box1{
+
+   #box1 {
       width: 85%;
       padding-left: 0.5em;
       padding-right: 0.5em;
    }
-
 }

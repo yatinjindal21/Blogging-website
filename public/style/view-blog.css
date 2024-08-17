@@ -31,7 +31,6 @@
    min-height: 3.5em;
    position: relative;
    top: -5.8em;
-
 }
 
 #titletext {
@@ -110,7 +109,7 @@
    font-weight: 400;
 }
 
-#comment{
+#comment {
    width: 100%;
    padding: 12px 20px;
    /* margin: 8px 0; */
@@ -118,11 +117,19 @@
    background-color: #ffffffda;
    margin: 2em;
    /* text-shadow: 2px 2px 2px #ffffffb8; */
-
+   margin-top: 10px;
    color: rgb(0, 0, 0);
    border: 2px solid #0000009c;
    border-radius: 5px;
+}
 
+#comment::placeholder{
+   color: rgb(203, 203, 203);
+}
+
+#comment:focus{
+   border: 2px solid #1e242b;
+   box-shadow: 0px 0px 5px #2e3944;
 }
 
 #userprofile {

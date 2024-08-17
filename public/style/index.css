@@ -5,8 +5,8 @@ body {
    background-position: center;
    background-color: white;
    background-color: white;
-   background: rgb(116,141,146);
-background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%);
+   background: rgb(116, 141, 146);
+   background: linear-gradient(0deg, rgba(116, 141, 146, 1) 0%, rgba(255, 255, 255, 1) 100%);
    /* background: rgb(116,141,146);
    background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(211,217,212,1) 100%); */
 }
@@ -23,20 +23,23 @@ background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 10
 }
 
 #navbut {
-   border-radius:30px;
-   border:none;
+   border-radius: 30px;
+   border: none;
    border-color: rgb(0, 0, 0);
    color: rgb(255, 255, 255);
    background-color: black;
    padding: 0.5em 1.3em;
 }
-#loginbut{
-   border: none; 
+
+#loginbut {
+   border: none;
    color: #007daf;
 }
+
 #loginbut:hover {
    color: rgb(74, 74, 74);
 }
+
 #navbut:hover {
    background-color: rgb(74, 74, 74);
    border: none;
@@ -46,7 +49,7 @@ background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 10
 #maintext {
    height: 80px;
 }
- 
+
 main {
    display: flex;
    flex-direction: column;
@@ -58,7 +61,7 @@ main {
    font-family: fantasy;
    font-weight: lighter;
    margin-top: 120px;
-   color:#000000;
+   color: #000000;
    /* text-shadow: 1px 1px 5px #124E66; */
 }
 
@@ -66,14 +69,14 @@ main {
    font-size: 20px;
 
    margin-bottom: 50px;
-   color:#000000;
+   color: #000000;
    /* text-shadow: 1px 1px 5px black; */
 
 }
 
 #start {
-   border-radius:30px;
-   border:none;
+   border-radius: 30px;
+   border: none;
    border-color: rgb(0, 0, 0);
    color: rgb(255, 255, 255);
    background-color: black;
@@ -95,8 +98,8 @@ main {
    aspect-ratio: 1;
    float: left;
    border-bottom-left-radius: 100%;
-   background: rgb(116,141,146);
-   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(211,217,212,1) 100%);
+   background: rgb(116, 141, 146);
+   background: linear-gradient(0deg, rgba(116, 141, 146, 1) 0%, rgba(211, 217, 212, 1) 100%);
    /* background-color: #124e6653; */
    /* border: 5px solid #ffcb69; */
    box-shadow: 0px 0px 30px 0px rgba(211, 214, 211, 0.505);
@@ -282,7 +285,7 @@ hr {
    }
 
    .accordion-item {
-      
+
       width: 100%;
    }
 
@@ -337,12 +340,14 @@ hr {
       height: 50px;
    }
 } */
-footer{
+footer {
    background-color: black;
    color: white;
    display: flex;
    padding: 1em;
-   justify-content: center; /*******/
-   align-items: center; /*******/
+   justify-content: center;
+   /*******/
+   align-items: center;
+   /*******/
    font-size: 12px;
 }

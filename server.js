@@ -209,6 +209,13 @@ app.get("/get-publisher", function (req, resp) {
    })
 })
 
+
+//-------------------------- SHOW ALL BLOGS =================================
+
+app.get("/show-all-blogs", function (req,res){
+   res.render('blog/index');
+})
+
 //-------------------------- GET ALL BLOGS ===============================
 
 app.get("/get-all-blogs", function (req, resp) {

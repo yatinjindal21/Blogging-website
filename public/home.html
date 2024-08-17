@@ -18,6 +18,8 @@
 </head>
 <body>
 
+<body>
+
    <input type="hidden" id="username" name="username">
 
    <!-- ----------------------------------NAV BAR--------------------------------------- -->
@@ -42,63 +44,72 @@
 
    <!-- -------------------------------BOTTOM NAV-BAR (SMALL SCREEN)--------------------------------------- -->
    <div class="col-md-12" style="height: 70px;"></div>
-   <div class="row fixed-bottom bg-gradient" id="nav-control"
-      style="height: 60px; background-color: #D3D9D4;box-shadow: 0px 0px 10px black;">
+   <div class="row fixed-bottom" id="nav-control"
+      style="height: 60px;background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%);box-shadow: 0px 0px 10px black;">
       <div class="col d-flex justify-content-center"><a href="display-blogs.html" target="screen"><i
-               class="fa-solid fa-house fa-2x p-3"></i></a></div>
-      <div class="col d-flex justify-content-center"><i class="fa-solid fa-magnifying-glass fa-2x p-3"></i></div>
-      <div class="col d-flex justify-content-center"><i class="fa-solid fa-bell fa-2x p-3"></i></div>
+               class="fa-solid fa-house fa-2x p-3" style="color: black;"></i></a></div>
+      <div class="col d-flex justify-content-center"><i class="fa-solid fa-magnifying-glass fa-2x p-3"
+            style="color: black;"></i></div>
+      <div class="col d-flex justify-content-center"><i class="fa-solid fa-bell fa-2x p-3" style="color: black;"></i>
+      </div>
    </div>
    <!-- --------------------------------LEFT SIDE NAV-BAR (BIG-SCREEN) ----------------------------------->
-   <div id="navl">
-      <div class="d-flex flex-row" style="height: calc(100vh - 70px);">
-         <div class="p-1 flex-shrink-1 bg-gradient" id="nav-control2">
-            <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="home-button" href="/views/blog/show.ejs" target="screen"
-               style="height: 16.66%;text-decoration: none; color: black;"><i class="fa-solid fa-house fa-2x"></i><span
-                  class="nav-name ms-3"><b>Home</b></span>
-            </a>
-            <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="search-button"
-               style="height: 16.66%;text-decoration: none; color: black;"><i
-                  class="fa-solid fa-brands fa-searchengin fa-2x"></i><span class="nav-name ms-3"><b>Search</b></span>
-            </a>
-            <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
-                  class="fa-solid fa-bell fa-2x"></i><span class="nav-name ms-3"><b>Notifications</b></span>
-            </div>
-            <a class="p-3 nav-icons2 d-flex align-items-center m-2" href="create-blog.html"
-               style="height: 16.66%;text-decoration: none; color: black;"><i class="fa-solid fa-blog fa-2x"></i><span
-                  class="nav-name ms-3"><b>Create</b></span>
-            </a>
-            <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
-                  class="fa-solid fa-gear fa-2x"></i><span class="nav-name ms-3"><b>Settings</b></span>
-            </div>
-            <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><img
-                  src="pics/pexels-photo-262508.webp" alt="Logo" width="35" height="35"
-                  class="rounded-circle border border-3 border-dark" id="user-pic"><span
-                  class="nav-name ms-3"><b>Profile</b></span>
-            </div>
-         </div>
 
-         <!-------------------------------------SCREEN-------------------------------------->
-         <iframe name="screen" id="screen"></iframe>
-         <div id="cover-screen"></div>
-
-         <div id="searchbar" name="searchbar">
-            <center>
-               <div class="d-flex flex-row align-items-center" id="search-box">
-                  <i class="bi bi-search"></i>
-                  <input type="search" name="searching" id="searching" ng-enter="opensearched(value)"
-                     ng-keyup="fetchsearched($event)">
-               </div>
-               <div id="search-list">
-                  <div id="search-item" ng-repeat="obj in jsonArray" ng-click="opensearched(obj.username);">
-                     {{obj.username}}</div>
-                  <!-- <div id="search-item">yatin_jindal21</div> -->
-               </div>
-            </center>
+   <div class="d-flex flex-row" style="height: calc(100vh - 70px);">
+      <div class="p-1 flex-shrink-1" id="nav-control2">
+         <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="home-button" href="/show-all-blogs"
+            target="screen" style="height: 16.66%;text-decoration: none; color: black;"><i
+               class="fa-solid fa-house fa-2x"></i><span class="nav-name ms-3"><b>Home</b></span>
+         </a>
+         <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="search-button"
+            style="height: 16.66%;text-decoration: none; color: black;"><i
+               class="fa-solid fa-brands fa-searchengin fa-2x"></i><span class="nav-name ms-3"><b>Search</b></span>
+         </a>
+         <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
+               class="fa-solid fa-bell fa-2x"></i><span class="nav-name ms-3"><b>Notifications</b></span>
          </div>
+         <a class="p-3 nav-icons2 d-flex align-items-center m-2" href="create-blog.html"
+            style="height: 16.66%;text-decoration: none; color: black;"><i class="fa-solid fa-blog fa-2x"></i><span
+               class="nav-name ms-3"><b>Create</b></span>
+         </a>
+         <div class="p-3 nav-icons2 d-flex align-items-center m-2" style="height: 16.66%;"><i
+               class="fa-solid fa-gear fa-2x"></i><span class="nav-name ms-3"><b>Settings</b></span>
+         </div>
+         <a class="p-3 nav-icons2 d-flex align-items-center m-2" href="profile.html"
+            style="height: 16.66%;text-decoration: none; color: black;"><img
+               src="pics/kevin-bhagat-zNRITe8NPqY-unsplash.jpg" alt="Logo" width="35" height="35"
+               class="rounded-circle border border-3 border-dark" id="user-pic"><span
+               class="nav-name ms-3"><b>Profile</b></span>
+         </a>
       </div>
 
+      <!-------------------------------------SCREEN-------------------------------------->
+      <iframe name="screen" id="screen"></iframe>
+      <div id="cover-screen"></div>
+
+
+      <div id="searchbar" name="searchbar">
+         <center>
+            <div class="d-flex flex-row align-items-center" id="search-box">
+               <i class="bi bi-search"></i>
+               <input type="search" name="searching" id="searching" ng-enter="opensearched(value)"
+                  ng-keyup="fetchsearched($event)">
+            </div>
+            <div id="searched-content">
+               <span id="search-title">Blogs</span>
+               <a class="p-3 nav-icons2 d-flex align-items-center m-2" id="search-list" href="display-blogs.html"
+                  target="screen" style="height: 16.66%;text-decoration: none; color: black;"><img
+                     src="pics/kevin-bhagat-zNRITe8NPqY-unsplash.jpg" alt="Logo" width="25" height="25"
+                     class="rounded-circle border border-3 border-dark" id="user-pic"><span
+                     class="nav-name ms-3"><b>Ketaki</b></span>
+               </a>
+
+            </div>
+         </center>
+      </div>
    </div>
+
+
 
 
    <!--=========================================================================================================================================-->
