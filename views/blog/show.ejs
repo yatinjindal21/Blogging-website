@@ -68,12 +68,13 @@
 
       <!-- <div id="userprofile"><img src="pics/cornelius-ventures-Ak81Vc-kCf4-unsplash.jpg" id="pfp"> @ketaki</div> -->
    </div>
-   
+   <
 
    <div style="width: 70%; margin: auto; position: relative; top:-1em;" id="comms">
-      <form action="/blogo" >
+      <form action="/view-blog/<%=blog.blogid%>/comment" method="post">
          <label for="comment"></label>
          <input type="text" id="comment" name="comment" placeholder="Comment Here">
+         <button>Submit</button>
       </form>
    </div>
    <!-- <div style="background-color: white;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias fuga aspernatur eligendi dolor cumque laboriosam animi placeat sint minus iure quia, nesciunt sequi, sed, voluptate odio deserunt voluptates recusandae.
