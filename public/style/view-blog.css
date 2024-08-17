@@ -53,29 +53,19 @@
    position: relative;
    top: -3.5em;
    margin: auto;
-<<<<<<< HEAD
-   padding: 14px;
-   box-shadow: inset #2E3944 0 0 0 4px, inset #748D92 0 0 0 10px, inset #D3D9D4 0 0 0 14px;
-=======
    padding:0.7em;
    border:2px solid rgba(255, 255, 255, 0.119);
    /* box-shadow: inset #D3D9D4 0 0 0 4px, inset #D3D9D4 0 0 0 8px; */
    /* box-shadow: inset 0 0 7px 5px #ffffff33; */
 
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
 
 }
 
 /* #images {
    box-shadow: inset #4e423d 0 0 0 4px, inset #846e63 0 0 0 10px, inset #c0a698 0 0 0 14px;
    margin: auto;
-<<<<<<< HEAD
-
-}
-=======
    
 } */
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
 
 #content {
    background-color: #ffffff;
@@ -114,11 +104,7 @@
    left: -2.7em;
    text-align: center;
    /* padding-top: 0.8em; */
-<<<<<<< HEAD
-   color: #2E3944;
-=======
    color: #ffffff;
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
    font-size: x-large;
    font-weight: 400;
 }
@@ -128,20 +114,12 @@
    padding: 12px 20px;
    /* margin: 8px 0; */
    /* box-sizing: border-box; */
-<<<<<<< HEAD
-   background-color: #748d92d2;
-=======
    background-color: #ffffffda;
    margin: 2em;
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
    /* text-shadow: 2px 2px 2px #ffffffb8; */
    margin-top: 10px;
    color: rgb(0, 0, 0);
-<<<<<<< HEAD
-   border: 2px solid #2e3944;
-=======
    border: 2px solid #0000009c;
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
    border-radius: 5px;
 }
 
@@ -159,17 +137,10 @@
 
    position: relative;
    top: -3.5em;
-<<<<<<< HEAD
-   left: 4em;
-   font-size: large;
-   color: #fdf7b7;
-   text-shadow: 1px 1px 2px #00000086;
-=======
    left:4em;
    font-size:large;
    color: #fffcfc;
    /* text-shadow: 1px 1px 2px #00000086; */
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
    border-radius: 3px;
 
 }
@@ -184,13 +155,8 @@
    height: 3em;
    margin-right: 0.4em;
    border-radius: 50%;
-<<<<<<< HEAD
-   border: 3px solid #2E3944;
-   /* box-shadow: 1px 1px 2px #d0d0d086; ; */
-=======
 border: 2px solid #ffffff;
 /* box-shadow: 1px 1px 2px #d0d0d086; ; */
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
 }
 
 @media(max-width:1040px) {

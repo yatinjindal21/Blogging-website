@@ -3,21 +3,10 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
-<<<<<<< HEAD
 
    /* background: rgb(211,217,212); */
    /* background: repeating-linear-gradient(45deg, #748D92 0%, #D3D9D4 100%); */
    background-color: #748D92;
-=======
-   /* filter: blur(8px); */
-   /* background: rgb(116,141,146);
-   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%); */
-   background: rgb(211,217,212);
-background: linear-gradient(0deg, rgba(211,217,212,1) 0%, rgba(255,255,255,1) 100%);
- 
-   background-color: white;
-   backdrop-filter: blur(3px);
->>>>>>> 5c3fa11985242219ca4150413e9dc66870b6a469
 }
 
 #title {
