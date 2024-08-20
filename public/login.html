@@ -49,7 +49,12 @@
                }
                else {
                   localStorage.setItem("activeID", $("#inputemail").val());
-                  location.href = "home.html";
+                  var au = localStorage.getItem("activeID");
+
+                  $.post("/set-active-id", { activeID: au }, function (response) {
+                     console.log("Server responded with:", response);
+                  });
+                  location.href = "/display-blogs";
                }
             }).fail(function (errKuch) {
                //alert(errKuch);
@@ -99,17 +104,16 @@
                      Password?</a></div>
             </div>
             <span id=" lres"></span>
-                     <button id="submit" type="button" class="btn" style="margin:auto" disabled>Log
-                        in</button>
+            <button id="submit" type="button" class="btn" style="margin:auto" disabled>Log
+               in</button>
 
-                     <div style="text-align: center; margin-top: 30px;">Don't have an account? <a
-                           href="/signup.html">Sign up
-                           here</a>
-                     </div>
-               </div>
-               <div id="sidepic2" style="background-image: url(pics/coffee-568968_1280.jpg); background-size: cover;">
-               </div>
+            <div style="text-align: center; margin-top: 30px;">Don't have an account? <a href="/signup.html">Sign up
+                  here</a>
             </div>
+         </div>
+         <div id="sidepic2" style="background-image: url(pics/coffee-568968_1280.jpg); background-size: cover;">
+         </div>
+      </div>
    </form>
 </body>
 

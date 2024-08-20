@@ -113,7 +113,11 @@
             $.ajax(obj).done(function (respkuch) {
                console.log(respkuch);
                localStorage.setItem("activeID", $("#uname").val());
-               location.href = "home.html";
+               $.post("/set-active-id", { activeID: au }, function (response) {
+                  console.log("Server responded with:", response);
+               });
+               location.href = "/display-blogs";
+
             }).fail(function (errKuch) {
                alert(errKuch);
                console.log(errKuch);

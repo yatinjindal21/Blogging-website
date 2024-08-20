@@ -1,114 +1,183 @@
 //------------------------ home button--------------------------------
-window.onload = function () {
-    const button = document.getElementById("home-button");
-    button.click();
- };
+// window.onload = function () {
+//     const button = document.getElementById("home-button");
+//     button.click();
+//  };
 
- //--------------------------- open search------------------------------------
- const search = document.querySelector('#search-button');
- const searchbar = document.querySelector('#searchbar');
- const cover = document.querySelector('#cover-screen');
+//--------------------------- open search------------------------------------
 
- search.addEventListener('click', function () {
-
-    const w = searchbar.style.left;
-
-    if (w === '75%') {
-       searchbar.style.left = '100%';
-       cover.style.display = "none";
-    }
-    else {
-       searchbar.style.left = '75%';
-       cover.style.display = "block";
-    }
- });
+const search = document.getElementById('search-button');
+const searchbar = document.querySelector('#searchbar');
+const cover = document.querySelector('#cover-screen');
 
 
- $(document).ready(function () {
-    //--------------------------------Navbar ---------------------------
-    $(window).resize(function () {
-       if ($(window).width() > $(window).height()) {
-          $('#nav-control').removeClass('fixed-bottom');
-       }
-       else {
-          $('#nav-control').addClass('fixed-bottom');
-       }
-    });
+function openSearch() {
 
-    $('#searching').focusin(function () {
-       $('.bi-search').addClass('glow-icon');
-       $('#search-box').addClass('glow-search');
-       $('#search-list').css('display', 'block');
-    })
+   const w = searchbar.style.left;
+   const computedStyle = window.getComputedStyle(searchbar);
+   const seaerchwidth = parseInt(computedStyle.width);
+   const computedwindow = parseInt(window.innerWidth);
 
-    $('#searching').focusout(function () {
-       $('.bi-search').removeClass('glow-icon');
-       $('#search-box').removeClass('glow-search');
-       // $('#search-list').css('display', 'none');
-    })
+   console.log(seaerchwidth);
+   console.log(computedwindow);
+   const ratio = Math.round(computedwindow/seaerchwidth);
+   console.log(ratio);
 
-    var au = localStorage.getItem("activeID");
-    $("#username").val(au);
+   if (ratio === 4) {
+      if (w === '75%') {
+         searchbar.style.left = '100%';
+         cover.style.display = "none";
+      }
+      else {
+         searchbar.style.left = '75%';
+         cover.style.display = "block";
+      }
+   }
+   else if (ratio === 1){
+      if (w === '75%') {
+         searchbar.style.left = '100%';
+         cover.style.display = "none";
+      }
+      else {
+         searchbar.style.left = '0%';
+         cover.style.display = "block";
+      }
+   }
+};
 
-    localStorage.setItem("activeID", au);
- });
+function searchContent(event) {
+   const item = event.target.value;
 
- var module = angular.module("myModule", []);
+   if (item === "") {
+      const resultsContainer = document.getElementById('searched-content');
+      resultsContainer.innerHTML = '';
 
- module.directive('ngEnter', function () {
-    return function (scope, element, attrs) {
-       element.bind("keydown keypress", function (event) {
-          if (event.which === 13) { // 13 is the Enter key code
-             scope.$apply(function () {
-                scope.$eval(attrs.ngEnter, { 'value': element.val() });
-             });
-             event.preventDefault();
-          }
-       });
-    }
- });
+      const emptysearch = document.createElement('h4');
+      emptysearch.innerHTML = 'Type Something to Search ✌️';
+      emptysearch.style.margin = '50px';
+      emptysearch.style.color = '#2E3944';
+      resultsContainer.appendChild(emptysearch);
+   } else {
+      fetch(`/get-searched-records?item=` + encodeURIComponent(item))
+         .then(response => response.json())
+         .then(data => {
 
- module.controller("myController", function ($scope, $http) {
+            const resultsContainer = document.getElementById('searched-content');
+            resultsContainer.innerHTML = ''; // Clear previous results
 
-    $scope.jsonArray;
-    $scope.fetchsearched = function (event) {
-       var url = "/get-searched-records?tofind=" + event.target.value;
-       $http.get(url).then(done, fail);
-       function done(response) {
+            let hasResults = false; // Track if there are any results
 
-          if (response.data == 'no data') {
-             $('#search-list').css('display', 'none');
-          }
-          else {
-             if (response.data == null) {
-                $('#search-list').css('display', 'none');
-             }
-             else {
-                $('#search-list').css('display', 'block');
-                $scope.jsonArray = response.data;
-             }
-          }
-       }
-       function fail(response) {
-          alert(response);
-       }
-    };
+            // -------------------------------- SEARCHING BLOGS ----------------------------------------
+            if (data.blogs && data.blogs.length > 0) {
+               const blogsearch = document.createElement('span');
+               blogsearch.id = "search-title";
+               blogsearch.innerHTML = 'Blogs';
+               resultsContainer.appendChild(blogsearch);
 
-    $scope.opensearched = function (uname) {
-       console.log(uname)
-       var url = "/open-searched-one?finder=" + uname;
-       $http.get(url).then(done, fail);
-       function done(response) {
-          // alert("helooo")
-          // if(response.length()==7){
-          //    alert("its a user");
-          // }
-          // else{
-          //    alert("its a blog");
-          // }
-       }
-       function fail(response) {
+               data.blogs.forEach(blog => {
+                  const linkElement = document.createElement('a');
+                  linkElement.id = 'search-list';
+                  linkElement.className = 'p-2 nav-icons2 d-flex align-items-center';
+                  linkElement.style.height = '16.66%';
+                  linkElement.style.textDecoration = 'none';
+                  linkElement.style.color = 'black';
 
-       }
-    };
- });
+                  const imgElement = document.createElement('img');
+                  imgElement.src = `/uploads/${blog.image}`;
+                  imgElement.alt = 'Logo';
+                  imgElement.width = 25;
+                  imgElement.height = 25;
+                  imgElement.className = 'rounded-circle border border-3 border-dark';
+                  imgElement.id = 'user-pic';
+                  linkElement.appendChild(imgElement);
+
+                  const spanElement = document.createElement('span');
+                  spanElement.className = 'nav-name ms-3';
+                  spanElement.innerHTML = `<b>${blog.blogname}</b>`;
+                  linkElement.appendChild(spanElement);
+
+                  resultsContainer.appendChild(linkElement);
+               });
+
+               hasResults = true;
+            }
+
+            // -------------------------------- SEARCHING USERS ----------------------------------------
+            if (data.users && data.users.length > 0) {
+               const usersearch = document.createElement('span');
+               usersearch.id = "search-title";
+               usersearch.innerHTML = 'Accounts';
+               resultsContainer.appendChild(usersearch);
+
+               data.users.forEach(user => {
+                  const linkElement = document.createElement('a');
+                  linkElement.id = 'search-list';
+                  linkElement.className = 'p-2 nav-icons2 d-flex align-items-center';
+                  linkElement.style.height = '16.66%';
+                  linkElement.style.textDecoration = 'none';
+                  linkElement.style.color = 'black';
+
+                  const imgElement = document.createElement('img');
+                  imgElement.src = `/uploads/${user.pic}`;
+                  imgElement.alt = 'Logo';
+                  imgElement.width = 25;
+                  imgElement.height = 25;
+                  imgElement.className = 'rounded-circle border border-3 border-dark';
+                  imgElement.id = 'user-pic';
+                  linkElement.appendChild(imgElement);
+
+                  const spanElement = document.createElement('span');
+                  spanElement.className = 'nav-name ms-3';
+                  spanElement.innerHTML = `<b>${user.username}</b>`;
+                  linkElement.appendChild(spanElement);
+
+                  resultsContainer.appendChild(linkElement);
+               });
+
+               hasResults = true;
+            }
+
+            // Handle the case when no results are found
+            if (!hasResults) {
+               const noresults = document.createElement('h4');
+               noresults.innerHTML = 'No results found 🤡';
+               noresults.style.margin = '50px';
+               noresults.style.color = '#2E3944';
+               resultsContainer.appendChild(noresults);
+            }
+         })
+         .catch(error => alert('Error:', error));
+   }
+}
+
+
+$(document).ready(function () {
+   //--------------------------------Navbar ---------------------------
+   $(window).resize(function () {
+      if ($(window).width() > $(window).height()) {
+         $('#nav-control').removeClass('fixed-bottom');
+      }
+      else {
+         $('#nav-control').addClass('fixed-bottom');
+      }
+   });
+
+   $('#searching').focusin(function () {
+      $('.bi-search').addClass('glow-icon');
+      $('#search-box').addClass('glow-search');
+      $('#search-list').css('display', 'block');
+   })
+
+   $('#searching').focusout(function () {
+      $('.bi-search').removeClass('glow-icon');
+      $('#search-box').removeClass('glow-search');
+      // $('#search-list').css('display', 'none');
+   })
+
+   var au = localStorage.getItem("activeID");
+   $("#username").val(au);
+
+   localStorage.setItem("activeID", au);
+});
+
+

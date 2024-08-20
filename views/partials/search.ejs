@@ -1,12 +1,13 @@
+<script src="/public/js/home.js"></script>
+
 <div id="searchbar" name="searchbar">
     <center>
        <div class="d-flex flex-row align-items-center" id="search-box">
           <i class="bi bi-search"></i>
-          <input type="search" name="searching" id="searching" ng-enter="opensearched(value)"
-             ng-keyup="fetchsearched($event)">
+          <input type="search" name="searching" id="searching" oninput="searchContent(event);">
        </div>
        <div id="searched-content">
-          <span id="search-title">Blogs</span>
+          <!-- <span id="search-title">Blogs</span>
           <a class="p-2 nav-icons2 d-flex align-items-center" id="search-list" href=""
              target="screen" style="height: 16.66%;text-decoration: none; color: black;"><img
                 src="pics/kevin-bhagat-zNRITe8NPqY-unsplash.jpg" alt="Logo" width="25" height="25"
@@ -19,7 +20,8 @@
                 src="pics/kevin-bhagat-zNRITe8NPqY-unsplash.jpg" alt="Logo" width="25" height="25"
                 class="rounded-circle border border-3 border-dark" id="user-pic"><span
                 class="nav-name ms-3"><b>Ketaki</b></span>
-          </a>
+          </a> -->
+          <h4 style="margin: 50px; color: #2E3944;">Type Something to Search ✌️</h4>
        </div>
     </center>
  </div>
