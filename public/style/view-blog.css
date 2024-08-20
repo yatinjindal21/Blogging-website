@@ -1,28 +1,18 @@
-/* body {
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
-   background-position: center;
-} */
+body {
+   background-color: #273f4d;
+}
 
 #box {
    display: flex;
    flex-direction: column;
    margin-top: 1em;
-   /* width: 79%; */
-   /* border: 2px solid #000000; */
    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.187);
-   
-   background: rgb(18,78,102);
-background: linear-gradient(0deg, rgba(18,78,102,1) 6%, rgba(116,141,146,1) 84%);
+   background: rgb(18, 78, 102);
+   background: linear-gradient(0deg, rgba(18, 78, 102, 1) 6%, rgba(116, 141, 146, 1) 84%);
 }
 
 #title {
    margin: auto;
-   /* min-width: 30%; */
-   /* height: 4em; */
-   /* background-color: #748D92;
-   color: white; */
    background-color: white;
    margin-top: 3em;
    padding-left: 3em;
@@ -34,11 +24,8 @@ background: linear-gradient(0deg, rgba(18,78,102,1) 6%, rgba(116,141,146,1) 84%)
 }
 
 #titletext {
-   /* color: white; */
-   font-size:xx-large;
-   /* padding-bottom: 0.3em; */
+   font-size: xx-large;
    font-weight: 500;
-   /* margin-top: 0; */
    /* text-shadow: 1px 1px 4px #000000b8; */
    /* letter-spacing: 2px; */
 }
@@ -56,111 +43,78 @@ background: linear-gradient(0deg, rgba(18,78,102,1) 6%, rgba(116,141,146,1) 84%)
    /* padding:0.7em; */
    /* border:2px solid rgba(255, 255, 255, 0.119); */
    /* box-shadow: inset #D3D9D4 0 0 0 4px, inset #D3D9D4 0 0 0 8px; */
-   box-shadow: 7px 7px 10px #00000040;
-
-
 }
 
-/* #images {
-   box-shadow: inset #4e423d 0 0 0 4px, inset #846e63 0 0 0 10px, inset #c0a698 0 0 0 14px;
+#images {
+   /* max-height: 50em; */
+   box-shadow: 7px 7px 10px #00000040;
+}
+
+#contentLikes {
+   width: 90%;
    margin: auto;
-   
-} */
+}
 
 #content {
    background-color: #ffffff;
    margin: auto;
-   /* margin-top: 2em;
-   margin-bottom: 2em; */
    padding: 2em 3em;
    /* width: 90%; */
-   /* padding-top: 1em; */
-   /* padding-left: 3em;
-   padding-right: 3em; */
-   /* color: white; */
    font-weight: 400;
    font-size: 18px;
-   /* text-shadow: 2px 2px 2px #000000b8; */
-   /* background-color: black; */
-   /* position: relative;
-   top: -2.5em; */
    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.187);
-
 }
 
 #author {
    font-weight: 500;
-   /* text-shadow: none; */
-   /* box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);  */
+   margin-top: 0.5em;
+   text-align: right;
+}
 
-   /* color: rgb(255, 255, 255); */
+#likeComments {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-top: 1.5em;
+   margin-bottom: 2em;
 }
 
 #likesbox {
-/* 
-margin-top: 1em;
-margin-bottom: 1em; */
-   /* top: -1em; */
-   /* left: -2.7em; */
-   /* text-align: center; */
-   /* padding-top: 0.8em; */
    color: #ffffff;
-   font-size: x-large;
+   font-size: 20px;
    font-weight: 400;
-   padding-top: 0.3em;
-}
-
-#comment {
-   width: 100%;
-   padding: 1em 2em;
-   /* margin: 8px 0; */
-   /* box-sizing: border-box; */
-   background-color: #ffffffda;
-   /* margin: 2em; */
-   /* text-shadow: 2px 2px 2px #ffffffb8; */
-   /* margin-top: 5em; */
-   margin: auto;
-   color: rgb(0, 0, 0);
-   border: 2px solid #8181819c;
-   /* border: none; */
-   /* border-radius: 5px; */
+   /* padding-top: 0.3em; */
+   /* border: 1px solid yellow; */
 }
 /* 
-#comment::placeholder{
-   color: rgb(203, 203, 203);
-}
-
-#comment:focus{
-   border: 2px solid #1e242b;
-   box-shadow: 0px 0px 5px #2e3944;
+#userprofile {
+   border: 1px solid yellow;
 } */
 
-#userprofile {
-   /* color: rgb(254, 253, 253); */
-/* 
-   position: relative;
-   top: -3.5em;
-   left:4em; */
-
-   font-size:large;
+#userr {
+   font-size: 20px;
+   font-weight: 400;
+   letter-spacing: 1px;
    color: #fffcfc;
-   /* text-shadow: 1px 1px 2px #00000086; */
-   /* border-radius: 3px; */
-
+   text-shadow: 1px 1px 2px #00000086;
 }
 
 #pfp {
-   /* margin-left: 4em; */
-   background-repeat: no-repeat;
-   /* background-attachment: fixed; */
-   background-size: cover;
-   background-position: center;
-   width: 3em;
-   height: 3em;
-   margin-right: 0.4em;
+   height: 30px;
    border-radius: 50%;
-border: 2px solid #ffffff;
-/* box-shadow: 1px 1px 2px #d0d0d086; ; */
+   aspect-ratio: 1/1;
+}
+
+#comms {
+   width: 60%;
+   margin: auto;
+   margin-top: 2em;
+}
+
+.card-header {
+   /* border-radius: 0%; */
+   background-color: #124E66;
+   color: white;
 }
 
 @media(max-width:1040px) {

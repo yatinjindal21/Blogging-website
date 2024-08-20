@@ -18,27 +18,29 @@
     <link rel="stylesheet" href="/style/home.css">
 
 
-     <!-- <link rel="stylesheet" href="/style/create-blog.css"> -->
+    <!-- <link rel="stylesheet" href="/style/create-blog.css"> -->
 
 </head>
 
 <body class="d-flex flex-column vh-100">
     <input type="hidden" id="username" name="username">
     <%-include('../partials/navbar')%>
-    
-        <div class="d-flex flex-row" style="height: calc(100vh - 70px);">
+
+        <div class="d-flex flex-row">
             <%-include('../partials/leftNav')%>
-                <main id="screen" style="margin-top:70px;"><div class="container">
-                    <%-body%>
-                  </div>
+                <main id="screen" class="d-flex align-items-center justify-content-center" style="margin-top:70px;">
+                    <div class="container">
+                        <%-body%>
+                    </div>
                 </main>
                 <div id="cover-screen"></div>
                 <%-include('../partials/search')%>
 
         </div>
+        <%-include('../partials/notification')%>
 
         <%-include('../partials/bottomNav')%>
-        <script src="/js/home.js">   </script>
-    </body>
+            <script src="/js/home.js">   </script>
+</body>
 
 </html>
