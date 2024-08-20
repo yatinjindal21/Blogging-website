@@ -1,0 +1,23 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" style="border: 2px solid yellow;" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="border: 2px solid red;">
+        <div class="modal-content" style="border-radius: 0%;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+            </div>
+            <div class="modal-body">
+                <% if (notifs && notifs.length > 0) { %>
+                    <% notifs.forEach(function(notif) { %>
+                        <p><%= notif.body %></p>
+                    <% }); %>
+                <% } else { %>
+                    <p>No notifications available</p>
+                <% } %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>

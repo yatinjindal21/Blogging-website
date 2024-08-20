@@ -31,6 +31,12 @@ app.use(express.urlencoded(true));
 
 
 
+
+
+
+
+
+
 app.get("/", function (req, res) {
    // resp.sendFile(process.cwd() + "/public/index.html");
    // res.render('index');
@@ -59,16 +65,33 @@ app.get("/display-blogs", function (req, res) {
    res.render('blog/index');
 })
 
-app.get("/view-blog/:id", function (req, res) {
+app.get("/view-blog/:id", (req, res) => {
    // resp.sendFile(process.cwd() + "/public/view-blog.html");
    const { id } = req.params;
-   query = 'SELECT blogs.*, users.name FROM blogs JOIN users ON blogs.username=users.username WHERE blogid=?';
+   query = 'SELECT blogs.*, users.name FROM blogs JOIN users ON blogs.username=users.username WHERE blogs.blogid=?';
    dbCon.query(query, [id], (err, blog) => {
       if (err) { res.send(err); }
-      console.log(blog);
-      res.render('blog/show', { blog: blog[0] });
-   })
-})
+      query = 'SELECT * FROM comments WHERE blogid=?';
+      dbCon.query(query, [id], (err, comments) => {
+         if (err) { res.send(err); }
+         console.log(blog);
+         // console.log(blog[0].username)
+         dbCon.query('SELECT * FROM notifications WHERE username=?',[blog[0].username],(err,notifs)=>{
+            if(err){
+               console.log(err);
+            }
+            console.log(notifs);
+            res.render('blog/view', { blog, comments, notifs });
+         })
+         // console.log(blog)
+         // console.log(comments);
+        
+      });
+
+   });
+   // res.render('view',{blog,comments});
+
+});
 
 //---------------------------DB Operations-------------------
 //================Database Connectivity============
@@ -373,5 +396,24 @@ app.get("/open-searched-one", function (req, resp) {
 
 app.post('/view-blog/:id/comment', (req, res) => {
    const body = req.body.comment;
+   const username = req.query.username;
+   const blogid = req.params.id;
+   query = 'INSERT INTO comments VALUES(cid,?,?,?)';
+   dbCon.query(query, [body, username, blogid], (err) => {
+      if (err) {
+         console.log(err);
+      }
+      dbCon.query('SELECT username FROM blogs WHERE blogid=?', [blogid], (err, userblog) => {
+         if (err) {
+            console.log(err);
+         }
+         query = 'INSERT INTO notifications VALUES(nid,?,?,?,?,isRead,created_at)';
+         dbCon.query(query, [`${username} commented: ${body}`, userblog[0].username, username, blogid,], (err) => {
+            res.redirect(`/view-blog/${blogid}`);
+         })
+      })
+      // query='INSERT INTO notifications (body, username, author, blogid, isRead) VALUES (`${username} commented: ${body}`, `${username}`, `${author}`, `${blogid}`, false);'
 
+   })
 })
+

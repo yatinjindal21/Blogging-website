@@ -40,6 +40,7 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
+   top: 70px;
    position: fixed;
    /* background-color: #ffffffa1; */
    /* color:white; */

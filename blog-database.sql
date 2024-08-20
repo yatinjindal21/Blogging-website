@@ -37,6 +37,31 @@ CREATE TABLE bloglikes (
     PRIMARY KEY (username , blogid)
 );
 
+CREATE TABLE comments(
+	cid INT PRIMARY KEY AUTO_INCREMENT,
+    body TEXT,
+    username VARCHAR(50),
+    blogid INT,
+    FOREIGN KEY (username)
+        REFERENCES users (username),
+    FOREIGN KEY (blogid)
+        REFERENCES blogs (blogid)
+);
+
+CREATE TABLE notifications (
+    nid INT PRIMARY KEY AUTO_INCREMENT,
+    body TEXT,
+    username VARCHAR(50),
+    author VARCHAR(50),
+    blogid INT,
+    isRead BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT current_timestamp,
+    FOREIGN KEY (username) REFERENCES users(username),
+    FOREIGN KEY (author) REFERENCES users(username),
+    FOREIGN KEY (blogid) REFERENCES blogs(blogid)
+);
+
+
 SELECT 
     b.username,
     b.blogid,
@@ -72,3 +97,6 @@ FROM
     blogs
 WHERE
     blogname LIKE '%o%';
+    
+SELECT * FROM notifications;
+SELECT * from blogs;
