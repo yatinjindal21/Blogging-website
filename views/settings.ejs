@@ -1,0 +1,119 @@
+<% layout('layout/boilerplate') %>
+    <link rel="stylesheet" href="/style/settings.css">
+
+
+    <div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
+        <div style="width: 80%; max-width: 800px; background: rgb(108, 137, 143);
+background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%); border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.285);">
+
+            <div style="padding: 1em;color:white; font-weight: 500; padding-left: 2.2em;  background-color: #212A31; border-top-left-radius: 10px; border-top-right-radius: 10px; ">
+                Edit Profile
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: center; padding: 2em; gap: 2em;">
+
+
+                <div
+                    style="width: 25%; overflow: hidden; aspect-ratio: 1/1;box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.447); border-radius: 50%;">
+                    <img src="<%= userTable[0].pic ? '/uploads/' + userTable[0].pic : '/uploads/defaultPfp.jpg' %>"
+                        alt="User Profile Picture" style="  width: 100%; height: 100%; object-fit: cover;"
+                        id="imagePic">
+                </div>
+
+                <form action="/<%=userTable[0].username%>/edit-profile" method="POST" enctype="multipart/form-data"
+                    style="width: 100%;">
+                    <!-- File Upload -->
+                    <div style="display: flex; align-items: center; gap: 1em;">
+                        <label class="text-tool" for="pic" id="insert-image" style="cursor: pointer;">
+                            <div style="background-color: #212A31; color:white; padding:0.2em 1em; border-radius: 7px;">
+                                <i class="bi bi-upload"></i> Upload New Photo </div>
+                            <input type="file" accept="image/*" id="pic" name="pic" style="display: none;">
+                        </label>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5em;">
+                        <label style="color:white" class="mb-2" for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            style="background-color: #212A31; color:white;  border:none;"
+                            value="<%=userTable[0].username%>" required>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1em;">
+                        <label style="color:white" class="mb-2" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            style="background-color: #212A31; color:white;  border:none;" value="<%=userTable[0].name%>"
+                            required>
+                    </div>
+
+                    <div style="margin-top: 2em; text-align: center; float: right;">
+                        <button type="submit" class="btn" style="background-color: #212A31; color:white">Save
+                            Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-5" style="width: 80%; max-width: 800px;  background: rgb(108, 137, 143);
+background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%); border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.285);">
+            <div style="padding: 1em;color:white; font-weight: 500; padding-left: 2.2em;  background-color: #212A31; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                Security
+            </div>
+
+
+            <div style="display: flex; align-items: center; justify-content: center; padding: 2em; gap: 2em;">
+
+
+
+                <form action="/<%=userTable[0].username%>/security" method="POST" enctype="multipart/form-data"
+                    style="width: 100%;" onsubmit="return validatePasswords()">
+
+                    <div class="form-group" style="margin-top: 1em; width: 75%; margin: auto;">
+                        <label style="color:white" class="mb-2" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            style="background-color: #212A31; color:white;  border:none;" value="<%=userTable[0].email%>" required>
+                    </div>
+                    <div class="form-group" style=" width: 75%; margin: auto;margin-top: 1.5em;">
+                        <label style="color:white" class="mb-2" for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            style="background-color: #212A31; color:white;  border:none;" required>
+                    </div>
+
+                    <div class="form-group" style=" width: 75%; margin: auto;margin-top: 1.5em;">
+                        <label style="color:white" class="mb-2" for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                            style="background-color: #212A31; color:white;  border:none;" required>
+                    </div>
+
+                    <div style="margin-top: 2em; text-align: center; float: right;">
+                        <button type="submit" class="btn" style="background-color: #212A31; color:white">Save
+                            Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('pic').addEventListener('change', (event) => { //The change event triggers when the user selects a file
+            const file = event.target.files[0]; //event.target refers to the element that triggered the event, which in this case is the file input element (#pic).
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {  //The onload property of the FileReader object is set to a function that will be called once the file has been read successfully.
+                    document.getElementById('imagePic').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+
+        })
+
+        function validatePasswords() {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return false; 
+        }
+        return true; 
+    }
+    </script>

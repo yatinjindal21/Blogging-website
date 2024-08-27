@@ -8,13 +8,33 @@
 }
 body{
     background-color: #124E66;
-    /* background: linear-gradient(0deg, rgba(64,69,58,0.7017951345577293) 0%, rgba(162,148,116,0.7073973754540879) 50%, rgba(255,231,176,0.7045962550059086) 96%); */
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: cover;
-background-position: center;
 }
-header{
+
+
+#pnav{
+    margin: 1em 7em;
+    margin-bottom: 0;
+    box-shadow: 0 0 8px 1px #00000025;
+    padding: 1.5em;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: rgba(0, 0, 0, 0.679);
+}
+#pnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+#pnav ul li{
+    font-weight: 500;
+}
+
+
+#pheader{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,42 +42,36 @@ header{
     /* background-color: rgba(54, 56, 56, 0.293); */
     margin: 3em 7em;
     margin-top: 0;
+    margin-bottom: 3em;
     padding: 2em;
     background: rgb(116,141,146);
     background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 81%);
     border-radius: 20px;
-
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    /* box-shadow:  0px 4px 4px rgba(0, 0, 0, 0.25); */
     box-shadow: 0 0 8px 1px #00000025;
+}
+#pheader img{
+    max-width: 12em;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    /* border:5px solid white; */
+    /* box-shadow: 0 0 8px 4px #00000037; */
+
+    /* z-index: 1; */
+}
+
+#name{
+    /* margin: 2em; */
+    font-size:43px;
+    margin-top: 0.2em;
+    color: #212A31;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.724);
+    font-weight: 800;
+    /* letter-spacing: 1px; */
 
 }
-nav{
-    margin: 3em 7em;
-    margin-bottom: 0;
-    box-shadow: 0 0 8px 1px #00000025;
 
-    padding: 1.5em;
-    /* font-size: 15px; */
-    /* font-weight:bolder; */
-    background-color: #fcfcfc;
-    border-radius: 20px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-
-    color: rgba(0, 0, 0, 0.679);
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-}
-nav ul li{
-    font-weight: 500;
-}
 #follow{
     margin-top: 1em;
     width: 100%;
@@ -66,43 +80,76 @@ nav ul li{
     /* font-size: 15px; */
 }
 #num{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 500;
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.477);
 
 }
 
-  
-header img{
-    max-width: 15em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    /* border:5px solid white; */
-    /* box-shadow: 0 0 8px 4px #00000037; */
 
-    /* z-index: 1; */
-}
-#name{
-    /* margin: 2em; */
-    font-size:50px;
-    /* margin: 1em; */
-    color: #212A31;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.724);
-    font-weight: 800;
-    /* letter-spacing: 1px; */
-
-}
 #followers{
     margin-top: 0.4em;
     font-weight: 500;
     color: #212A31;
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.467);
-  
+}
+
+#blogsBg{
+    width: 80%;
+    display:flex;
+    flex-wrap: wrap; 
+    padding: 0.5em; 
+    background: rgb(18,78,102);
+    background: linear-gradient(0deg, rgba(18,78,102,1) 10%, rgba(116,141,146,1) 92%); 
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.blogDiv{
+    width: 31.43%;
+    display:  flex; 
+    flex-direction: column; 
+    margin: 0.5em; 
+    transition: transform 0.3s ease;
+}
+.blogDiv:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+}
+
+#imgDiv{
+    height: 250px; 
+    overflow: hidden; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+    /* border: 1px solid black; */
+}
+
+#blogImg{
+    /* padding: 1em; */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+}
+
+#titleDiv{
+    /* background-color: #748D92; 
+    color:white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+    background-color: #D3D9D4; 
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px; 
+    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.3); 
+    padding:1em; 
+    font-size: 17px;
+    font-weight: 450;
+    text-align:center;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.725); 
 
 }
 
 @media(max-width:1410px){
-    header{
+    #pheader{
         padding-left: 2em;
         padding-right:2em;
     }
@@ -110,18 +157,44 @@ header img{
         justify-content:space-between;
     }
 }
+
+@media(max-width:1322px){
+    .blogDiv{
+        margin: 0.4em;
+    }
+}
+@media(max-width:1119px){
+    .blogDiv{
+        margin: 0.35em;
+    }
+}
+@media(max-width:970px){
+    #blogsBg{
+        width: 100%;
+    }
+    .blogDiv{
+        width: 48%;
+    }
+}
 @media(max-width:768px){
-   
-    header{
+   #blogsBg{
+    padding:1.5em
+   }
+    .blogDiv{
+        width: 100%;
+        margin: 0;
+        margin-bottom: 1em;
+    }
+    #pheader{
         margin: 2em 3em;
         margin-top: 0%;
     }
-    nav{
+    #pnav{
         margin: 2em 3em;
         margin-bottom: 0%;
         padding: 1em 1.5em;
     }
-    header img{
+    #pheader img{
         max-width: 12.5em;
     }
     #name{
@@ -138,19 +211,40 @@ header img{
 }
 @media(max-width:490px){
    
-    nav, header{
+    #pnav, #pheader{
         margin:0;
         border-radius: 0;
     }
+    #pnav{
+        margin-top: 0.5em;
+    }
+    #blogsBg{
+        width: 100%;
+        border-radius: 0%;
+        margin-top: 1em;
+    }
+    .blogDiv {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 1em;
+        border-radius: 0;
+    }
+    #imgDiv{
+        height: 200px;
+        border-radius: 0;
+    }
+    #titleDiv{
+        border-radius: 0;
+    }
    
-    header img{
+    #pheader img{
         max-width: 9em;
         margin: auto;
     }
-    nav ul{
+    #pnav ul{
         align-self:center
     }
-    nav{
+    #pnav{
         padding: 0.5em 1em;
         font-weight: 550;
 
@@ -168,7 +262,7 @@ header img{
         font-weight: 550;
 
     }
-    header{
+    #pheader{
         padding-left: 1em;
         padding-right:1em;
     }
@@ -176,3 +270,5 @@ header img{
         justify-content:space-between;
     }
 }
+
+

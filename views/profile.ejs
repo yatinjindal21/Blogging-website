@@ -1,47 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link rel="stylesheet" href="style/profile.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-
-<body style="background-color: #124E66;">
-   <nav>
-      <ul>
-         <li>></li>
-         <li>@pengu</li>
-         <li>edit</li>
-      </ul>
-   </nav>
-   <header>
-
-      <img src="pics/javi-8cg3snEK2pY-unsplash.jpg" alt="profile">
-      <div id="name">Penguin</div>
-      <!-- <div id="followers">100 Followers | 100 Following | 20 Blogs</div> -->
-      <div id="follow">
-         <div>
-            <center id="num">100<br></center>Followers
+<% layout('layout/boilerplate') %>
+   <link rel="stylesheet" href="/style/profile.css">
+   <div class="container">
+      <nav id="pnav">
+         <ul>
+            <li>></li>
+            <li>@<%=userTable[0].username%>
+            </li>
+            <li><a href="/display-blogs">Edit</a></li>
+         </ul>
+      </nav>
+      <header id="pheader">
+         <img src="<%= userTable[0].pic ? `/uploads/${userTable[0].pic}` : '/uploads/defaultPfp.jpg' %>"  alt="profile">
+         <div id="name">
+            <%=userTable[0].name%>
          </div>
-         <div>
-            <center id="num">200<br></center>Following
+         <!-- <div id="followers">100 Followers | 100 Following | 20 Blogs</div> -->
+         <div id="follow">
+            <div>
+               <center id="num">100<br></center>Followers
+            </div>
+            <div>
+               <center id="num">200<br></center>Following
+            </div>
+            <div>
+               <center id="num">300<br></center>Blogs
+            </div>
          </div>
-         <div>
-            <center id="num">300<br></center>Blogs
+      </header>
+
+      <main class="d-flex justify-content-center align-items-center">
+
+         <div id="blogsBg">
+            <%for(let blogs of blogTable){%>
+               <div class="blogDiv" data-id="<%= blogs.blogid %>">
+                  <div id="imgDiv">
+                     <img src="/uploads/<%=blogs.image%>" id="blogImg" alt="Cropped Image">
+                  </div>
+                  <div class="text-truncate" id="titleDiv">
+                     <%=blogs.blogname%>
+                  </div>
+               </div>
+            <%}%>
+
          </div>
-      </div>
-   </header>
+      </main>
+   </div>
+   <script>
+      const blogs = document.querySelectorAll('.blogDiv');
 
-   <main>
+      for (let blog of blogs) {
+         blog.onclick = () => {
+            const blogId = blog.getAttribute('data-id');
+            window.location.href = `/view-blog/${blogId}`;
+         }
+      }
 
-   </main>
-   <footer>
 
-   </footer>
-</body>
 
-</html>
+   </script>
