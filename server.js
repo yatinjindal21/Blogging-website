@@ -272,7 +272,9 @@ app.get("/get-all-blogs", function (req, resp) {
 
    var username = req.query.username;
 
-   dbCon.query("SELECT b.username,b.blogid,b.blogname,b.blogcontent,b.image,b.postdate,b.commentpermi,b.likes,MAX(CASE WHEN l.username = ? THEN l.username ELSE NULL END) AS liker FROM blogs b LEFT OUTER JOIN bloglikes l ON b.blogid = l.blogid GROUP BY b.blogid", [username], function (err, resultTableJSON) {
+   dbCon.query(`SELECT b.username,b.blogid,b.blogname,b.blogcontent,b.image,b.postdate,b.commentpermi,b.likes,
+      MAX(CASE WHEN l.username = ? THEN l.username ELSE NULL END) AS liker FROM blogs b LEFT OUTER JOIN 
+      bloglikes l ON b.blogid = l.blogid GROUP BY b.blogid`, [username], function (err, resultTableJSON) {
 
       if (err == null)
          resp.send(resultTableJSON);

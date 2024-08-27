@@ -106,22 +106,29 @@ body{
 }
 
 .blogDiv{
-    width: 31.43%;
-    display:  flex; 
-    flex-direction: column; 
-    margin: 0.5em; 
-    transition: transform 0.3s ease;
+   position: relative; /* Added to contain the absolutely positioned titleDiv */
+   width: 31.43%;
+   display: flex;
+   flex-direction: column;
+   margin: 0.5em;
+   transition: transform 0.3s ease;
 }
 .blogDiv:hover{
     cursor: pointer;
     transform: scale(1.04);
 }
 
+.blogDiv:hover #titleDiv {
+   transform: translate(-50%, -50%) scale(1.2); /* Increase the size of titleDiv on hover */
+   transition: transform 0.3s ease;
+}
+
 #imgDiv{
-    height: 250px; 
-    overflow: hidden; 
-    border-top-left-radius: 10px; 
-    border-top-right-radius: 10px;
+   height: 250px;
+   overflow: hidden;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   position: relative;
     /* border: 1px solid black; */
 }
 
@@ -133,18 +140,18 @@ body{
 }
 
 #titleDiv{
-    /* background-color: #748D92; 
-    color:white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
-    background-color: #D3D9D4; 
-    border-bottom-left-radius: 10px; 
-    border-bottom-right-radius: 10px; 
-    box-shadow: 0 -5px 10px -5px rgba(0, 0, 0, 0.3); 
-    padding:1em; 
-    font-size: 17px;
-    font-weight: 450;
-    text-align:center;
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.725); 
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   mix-blend-mode: difference;
+   text-align: center;
+   padding: 0.5em;
+   font-size: 17px;
+   font-weight: 450;
+   pointer-events: none;
+   /* text-shadow: 0px 0px 10px #124E66; */
 
 }
 

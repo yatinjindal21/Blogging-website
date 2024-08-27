@@ -1,7 +1,7 @@
 <% layout('layout/boilerplate') %>
    <link rel="stylesheet" href="/style/view-blog.css">
    <input type="hidden" id="blogid" value="<%= blog[0].blogid%>">
-   <div id="box">
+   <div id="box" ng-app="testModule" ng-controller="testController" ng-init="fetchBlogs();">
       <div id="title">
          <center>
             <span id="titletext">
@@ -22,10 +22,12 @@
                   </i></div>
          </div>
          <div id="likeComments">
-            <div id="likesbox"><i class="bi bi-balloon-heart" onclick="dolike('<%=blog[0].blogid%>',$event)"></i>
-               <%=blog[0].likes%>
+            <div id="likesbox" ng-repeat="obj in jsonArray" ng-if="obj.blogid === <%= blog[0].blogid %>">
+               <i class="bi" ng-class="{'bi-balloon-heart-fill': obj.isLiked, 'bi-balloon-heart': !obj.isLiked}"
+                  style="font-size: larger;" ng-click="dolike(obj.blogid)"></i>
+               {{obj.likes}}
             </div>
-
+            
             <div id="userprofile"><img src="/uploads/kimchi3.jpg" id="pfp"
                   style="box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.187);height: 35px;">
                <span id="userr">
@@ -82,3 +84,4 @@
          this.submit();
       })
    </script>
+   <script src="/js/viewblog.js"></script>

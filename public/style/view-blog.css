@@ -71,6 +71,12 @@ body {
    text-align: right;
 }
 
+.bi-balloon-heart-fill {
+   color: red;
+   /* box-shadow: 0px 0px 5px #fffcfc; */
+   text-shadow: 0px 0px 5px #fffcfc;
+}
+
 #likeComments {
    display: flex;
    justify-content: space-evenly;

@@ -10,7 +10,7 @@
          </ul>
       </nav>
       <header id="pheader">
-         <img src="<%= userTable[0].pic ? `/uploads/${userTable[0].pic}` : '/uploads/defaultPfp.jpg' %>"  alt="profile">
+         <img src="<%= userTable[0].pic ? `/uploads/${userTable[0].pic}` : '/uploads/defaultPfp.jpg' %>" alt="profile">
          <div id="name">
             <%=userTable[0].name%>
          </div>
@@ -40,8 +40,7 @@
                      <%=blogs.blogname%>
                   </div>
                </div>
-            <%}%>
-
+               <%}%>
          </div>
       </main>
    </div>
