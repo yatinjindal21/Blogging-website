@@ -6,15 +6,13 @@
         <div style="width: 80%; max-width: 800px; background: rgb(108, 137, 143);
 background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%); border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.285);">
 
-            <!-- Header -->
             <div style="padding: 1em;color:white; font-weight: 500; padding-left: 2.2em;  background-color: #212A31; border-top-left-radius: 10px; border-top-right-radius: 10px; ">
                 Edit Profile
             </div>
 
-            <!-- Profile Picture and Form -->
             <div style="display: flex; align-items: center; justify-content: center; padding: 2em; gap: 2em;">
 
-                <!-- Profile Picture Container -->
+
                 <div
                     style="width: 25%; overflow: hidden; aspect-ratio: 1/1;box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.447); border-radius: 50%;">
                     <img src="<%= userTable[0].pic ? '/uploads/' + userTable[0].pic : '/uploads/defaultPfp.jpg' %>"
@@ -22,7 +20,6 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                         id="imagePic">
                 </div>
 
-                <!-- Form for Upload and User Information -->
                 <form action="/<%=userTable[0].username%>/edit-profile" method="POST" enctype="multipart/form-data"
                     style="width: 100%;">
                     <!-- File Upload -->
@@ -34,7 +31,6 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                         </label>
                     </div>
 
-                    <!-- Username Field -->
                     <div class="form-group" style="margin-top: 1.5em;">
                         <label style="color:white" class="mb-2" for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username"
@@ -42,7 +38,6 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                             value="<%=userTable[0].username%>" required>
                     </div>
 
-                    <!-- Name Field -->
                     <div class="form-group" style="margin-top: 1em;">
                         <label style="color:white" class="mb-2" for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name"
@@ -50,7 +45,6 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                             required>
                     </div>
 
-                    <!-- Submit Button -->
                     <div style="margin-top: 2em; text-align: center; float: right;">
                         <button type="submit" class="btn" style="background-color: #212A31; color:white">Save
                             Changes</button>
@@ -65,13 +59,11 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                 Security
             </div>
 
-            <!-- Profile Picture and Form -->
+
             <div style="display: flex; align-items: center; justify-content: center; padding: 2em; gap: 2em;">
 
-                <!-- Profile Picture Container -->
 
 
-                <!-- Form for Upload and User Information -->
                 <form action="/<%=userTable[0].username%>/security" method="POST" enctype="multipart/form-data"
                     style="width: 100%;" onsubmit="return validatePasswords()">
 
@@ -80,21 +72,18 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
                         <input type="email" class="form-control" id="email" name="email"
                             style="background-color: #212A31; color:white;  border:none;" value="<%=userTable[0].email%>" required>
                     </div>
-                    <!-- Username Field -->
                     <div class="form-group" style=" width: 75%; margin: auto;margin-top: 1.5em;">
                         <label style="color:white" class="mb-2" for="password">Password</label>
                         <input type="password" class="form-control" id="password" name="password"
                             style="background-color: #212A31; color:white;  border:none;" required>
                     </div>
 
-                    <!-- Name Field -->
                     <div class="form-group" style=" width: 75%; margin: auto;margin-top: 1.5em;">
                         <label style="color:white" class="mb-2" for="confirmPassword">Confirm Password</label>
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                             style="background-color: #212A31; color:white;  border:none;" required>
                     </div>
 
-                    <!-- Submit Button -->
                     <div style="margin-top: 2em; text-align: center; float: right;">
                         <button type="submit" class="btn" style="background-color: #212A31; color:white">Save
                             Changes</button>
@@ -123,8 +112,8 @@ background: linear-gradient(0deg, rgb(108, 137, 143) 10%, rgba(46,57,68,1) 92%);
         
         if (password !== confirmPassword) {
             alert("Passwords do not match!");
-            return false; // Prevent form submission
+            return false; 
         }
-        return true; // Allow form submission
+        return true; 
     }
     </script>
