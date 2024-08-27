@@ -53,14 +53,16 @@ CREATE TABLE notifications (
     body TEXT,
     username VARCHAR(50),
     author VARCHAR(50),
+    pic VARCHAR(200),
     blogid INT,
     isRead BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT current_timestamp,
+    created_at datetime,
     FOREIGN KEY (username) REFERENCES users(username),
     FOREIGN KEY (author) REFERENCES users(username),
     FOREIGN KEY (blogid) REFERENCES blogs(blogid)
 );
 
+drop table notifications;
 
 SELECT 
     b.username,
@@ -98,5 +100,7 @@ FROM
 WHERE
     blogname LIKE '%o%';
     
+SELECT * FROM users;
 SELECT * FROM notifications;
 SELECT * from blogs;
+INSERT INTO notifications VALUES(nid,?,?,?,?,isRead,current_timestamp())

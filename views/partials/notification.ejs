@@ -1,23 +1,66 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" style="border: 2px solid yellow;" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="border: 2px solid red;">
-        <div class="modal-content" style="border-radius: 0%;">
-            <div class="modal-header">
+<style>
+    .divNotif {
+        transition: transform 0.3s ease;
+    }
+
+    .divNotif:hover {
+        cursor: pointer;
+        transform: scale(1.001);
+        box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.674);
+        /* border: 1px solid rgba(173, 173, 173, 0.742); */
+    }
+</style>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color: rgb(165, 191, 196);
+         box-shadow: 0px 0px 8px rgb(0, 0, 0);">
+            <div class="modal-header"
+                style="border:none;  background-color: #e8eff4; padding-left: 1.5em; text-shadow: 2px 2px 4px #fffefe; ">
                 <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
             </div>
-            <div class="modal-body">
-                <% if (notifs && notifs.length > 0) { %>
+            <div class="modal-body" style="margin-bottom: 0%; box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.209); max-height: 70vh; overflow-y: scroll;">
+                <% if (notifs && notifs.length> 0) { %>
                     <% notifs.forEach(function(notif) { %>
-                        <p><%= notif.body %></p>
+                        <div
+                            style="display:flex; justify-content: center; align-items: center; background-color: #e8eff4;"
+                            class="divNotif mb-2 p-2"  data-id="<%=notif.blogid%>">
+                            <img src="/uploads/defaultPfp.jpg" class="me-2"
+                                style="   height: 30px; border-radius: 50%; aspect-ratio: 1/1;">
+                            <div style="display: flex; flex-direction: column; width: 100%;">
+                                <div>
+                                    <%=notif.author%> Commented: <b>
+                                            <%= notif.body %>
+                                        </b>
+                                </div>
+                                <div style="align-self: flex-end; color:rgba(94, 93, 93, 0.571); font-size: 15px;"
+                                    class="mt-1">
+                                    <%=notif.relativeTime%>
+                                </div>
+                            </div>
+                        </div>
                     <% }); %>
                 <% } else { %>
                     <p>No notifications available</p>
                 <% } %>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="modal-footer" style="border: none; margin-top: 0;">
+                <button type="button" class="btn" style="font-weight: 500; background-color: #d3dee0; color:#000000"
+                    data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 
 </div>
+
+<script>
+    const notifs=document.querySelectorAll('.divNotif');
+    for(let notif of notifs){
+        notif.onclick=()=>{
+            const blogId = notif.getAttribute('data-id');
+            window.location.href = `/view-blog/${blogId}`;
+        }
+    }
+</script>
+
