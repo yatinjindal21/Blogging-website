@@ -343,7 +343,7 @@ app.get("/get-searched-records", function (req, resp) {
 
    var tofind = req.query.item;
    var query1 = `(SELECT username, pic FROM users WHERE username LIKE ? UNION SELECT username, pic FROM users WHERE username LIKE ?) LIMIT 5`;
-   var query2 = `(SELECT blogname, image FROM blogs WHERE blogname LIKE ? UNION SELECT blogname, image FROM blogs WHERE blogname LIKE ?) LIMIT 5`;
+   var query2 = `(SELECT blogid, blogname, image FROM blogs WHERE blogname LIKE ? UNION SELECT blogid, blogname, image FROM blogs WHERE blogname LIKE ?) LIMIT 5`;
 
    dbCon.query(query1, [`${tofind}%`,`%${tofind}%`], function (err, usersTable) {
       if (err) {

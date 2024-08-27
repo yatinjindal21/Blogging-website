@@ -14,65 +14,6 @@
    <link rel="stylesheet" href="style/create-blog.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <script src="script/angular.min.js"></script>
-
-   <script>
-      $(document).ready(function () {
-
-         //-------------------------tools-clicking---------------------------------
-         $('.btn-toggled').click(function () {
-            $(this).toggleClass('button-toggle1 button-toggle2');
-         });
-         $('#text-bg-color').click(function () {
-            $('#inputbgtextcolor').focus();
-         });
-
-
-         var au = localStorage.getItem("activeID");
-         $("#username").val(au);
-         alert(au);
-      });
-
-
-      function execCmd(command) {
-         document.execCommand(command, false, null);
-      }
-
-      function execCmdWithArg(command, arg) {
-         document.execCommand(command, false, arg);
-      }
-
-      function changeTextColor(color) {
-
-         if (color != null) {
-            document.execCommand('foreColor', false, color);
-         }
-      }
-
-      function changeTextBGColor(color) {
-
-         if (color != null) {
-            document.execCommand('backColor', false, color);
-         }
-      }
-
-      var module = angular.module("myModule", []);
-      module.controller("myController", function ($scope, $http) {
-
-         $scope.jsonArray;
-
-         $scope.username = localStorage.getItem("activeID");
-         $scope.fetchPublisher = function () {
-            var url = "/get-publisher?uname=" + $scope.username;
-            $http.get(url).then(done, fail);
-            function done(response) {
-               $scope.jsonArray = response.data;
-            }
-            function fail(response) {
-               alert(response.data);
-            }
-         }
-      })     
-   </script>
 </head>
 
 <!--============================================================================================================================================-->
@@ -91,185 +32,41 @@
 
    <form method="post" enctype="multipart/form-data">
 
-      <!-- ------------------------------TOOL-BAR (mobile-view) ---------------------------------- -->
-      <div class="row fixed-bottom bg-gradient" id="nav-control">
-         <ul class="d-flex flex-row align-items-center" id="tools" style="height: inherit; ">
-
-            <label class="text-tool" for="blogimage" id="insert-image">
-               <li class="text-tool"><i class="fa-solid fa-camera"></i></li>
-               <input type="file" accept="image/*" id="blogimage" name="blogimage" style="display: none;">
-            </label>
-
-            <select class="text-tool" id="select-font-style">
-               <option value="">Arial</option>
-               <option value="">Times</option>
-               <option value="">Roman</option>
-            </select>
-
-            <select class="text-tool" id="select-font-size">
-               <option value="">XS</option>
-               <option value="">S</option>
-               <option value="">M</option>
-               <option value="">L</option>
-               <option value="">XL</option>
-               <option value="">XXL</option>
-            </select>
-
-            <li class="text-tool" id="writing-type">P</li>
-
-            <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Bold')" id="bold-content"><i
-                  class="fa-solid fa-bold"></i></li>
-
-            <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('italic')" id="italic-content"><i
-                  class="fa-solid fa-italic"></i></li>
-
-            <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Underline')" id="underline-content"><i
-                  class="fa-solid fa-underline"></i>
-            </li>
-
-            <li class="text-tool button-toggle2 btn-toggled" onclick="execCmd('strikeThrough')" id="strike-content"><i
-                  class="fa-solid fa-strikethrough"></i>
-            </li>
-
-            <button class="text-tool d-flex flex-column align-items-center" name="text-color" id="text-color">
-               <label for="inputtextcolor">
-                  <div class="d-flex align-items-center justify-content-center" style="height: 20px;">
-                     <span><b>A</b></span>
-                  </div>
-                  <div class="d-flex align-items-start"><input type="color" onchange="changeTextColor(this.value)"
-                        value="black" id="inputtextcolor" name="inputtextcolor">
-                  </div>
-               </label>
-            </button>
-
-            <button class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
-               <label for="inputbgtextcolor">
-                  <div class="d-flex align-items-center" style="height: 20px;"><span id="bgtextcolor"><b>A</b></span>
-                  </div>
-                  <div class="d-flex align-items-start"><input type="color" onchange="changeTextBGColor(this.value)"
-                        id="inputbgtextcolor" name="inputbgtextcolor">
-                  </div>
-               </label>
-            </button>
-
-            <li class="text-tool button-toggle2 btn-toggled" id="align-center"><i class="fa-solid fa-align-center"></i>
-            </li>
-
-            <li class="text-tool button-toggle2 btn-toggled" id="align-justify"><i
-                  class="fa-solid fa-align-justify"></i>
-            </li>
-
-            <li class="text-tool button-toggle2 btn-toggled" id="align-left"><i class="fa-solid fa-align-left"></i></li>
-
-            <li class="text-tool button-toggle2 btn-toggled" id="align-right"><i class="fa-solid fa-align-right"></i>
-            </li>
-         </ul>
-      </div>
-
       <!-- ============================================= MAIN ============================================== -->
       <main>
          <input type="hidden" id="username" ng-model="username" name="username">
 
          <div class="d-flex flex-column align-items-center">
-            <!-- ---------------------------TITLE FOR BLOG -------------------------------------->
-            <div class="m-3" style="width: 90%;">
-               <label for="inputBlogTitle" class="form-label" id="blog-title">Title</label>
-               <input type="text" class="form-control" id="inputBlogTitle" name="inputBlogTitle"
-                  placeholder="Blog Title">
-            </div>
+            <div class="container d-flex flex-column align-items-center mt-4">
 
-            <!-- ----------------------------- TOOL-BAR (big-screen)--------------------- -->
-            <div class="row bg-gradient mt-3" id="nav-control2">
-               <ul class="d-flex flex-row align-items-center" id="tools" style="height: inherit; ">
 
-                  <label class="text-tool" for="blogimage" id="insert-image">
-                     <li class="text-tool"><i class="fa-solid fa-camera"></i></li>
-                     <input type="file" accept="image/*" id="blogimage" name="blogimage" style="display: none;">
-                  </label>
+               <!-- ---------------------------TITLE FOR BLOG -------------------------------------->
+               <div class="" style="width: 100%; min-width: 300px;margin-left:5%">
+                  <label for="inputBlogTitle" class="form-label" id="blog-title">Title</label>
+                  <div class="" style="width: 100%;">
+                     <input type="text" class="form-control" id="inputBlogTitle" name="inputBlogTitle"
+                        placeholder="Blog Title" style="float: left;width: 80%;" required>
 
-                  <select class="text-tool" id="select-font-style" onchange="execCmdWithArg('fontName', this.value)">
-                     <option value="Arial">Arial</option>
-                     <option value="Times New Roman">Times New Roman</option>
-                     <option value="Courier New">Courier New</option>
-                  </select>
-
-                  <select class="text-tool" id="select-font-size" onchange="execCmdWithArg('fontSize', this.value)">
-                     <option value="1">XXS</option>
-                     <option value="2">XS</option>
-                     <option selected value="3">S</option>
-                     <option value="4">M</option>
-                     <option value="5">L</option>
-                     <option value="6">XL</option>
-                     <option value="7">XXL</option>
-                  </select>
-
-                  <li class="text-tool" id="writing-type">P</li>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Bold')"
-                     id="bold-content"><i class="fa-solid fa-bold"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" onclick="execCmd('italic')"
-                     id="italic-content"><i class="fa-solid fa-italic"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" onclick="execCmd('Underline')"
-                     id="underline-content"><i class="fa-solid fa-underline"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" onclick="execCmd('strikeThrough')"
-                     id="strike-content"><i class="fa-solid fa-strikethrough"></i>
-                  </button>
-
-                  <button type="button" class="text-tool d-flex flex-column align-items-center" name="text-color"
-                     id="text-color">
-                     <label for="inputtextcolor">
-                        <div class="d-flex align-items-center justify-content-center" style="height: 20px;">
-                           <span><b>A</b></span>
-                        </div>
-                        <div class="d-flex align-items-start"><input type="color" id="inputtextcolor"
-                              onchange="changeTextColor(this.value)" name="inputtextcolor">
-                        </div>
+                     <label class="text-tool d-flex align-items-center justify-content-center rounded" for="blogimage"
+                        id="insert-image">
+                        <i class="fa-solid fa-camera" style="font-size: xx-large; color: #D3D9D4;"></i>
+                        <input class="rounded-circle" type="file" accept="image/*" id="blogimage" name="blogimage"
+                           style="display: none;" required onchange="doPrev(this,prevImg)">
                      </label>
-                  </button>
-
-                  <button type="button" class="text-tool d-flex flex-column align-items-center" id="text-bg-color">
-                     <label for="inputbgtextcolor">
-                        <div class="d-flex align-items-center" style="height: 20px;"><span
-                              id="bgtextcolor"><b>A</b></span>
-                        </div>
-                        <div class="d-flex align-items-start"><input type="color"
-                              onchange="changeTextBGColor(this.value)" id="inputbgtextcolor" name="inputbgtextcolor">
-                        </div>
-                     </label>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" id="align-center"
-                     onclick="execCmd('justifyCenter')"><i class="fa-solid fa-align-center"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" onclick="execCmd('justifyFull')"
-                     id="align-justify"><i class="fa-solid fa-align-justify"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" id="align-left"
-                     onclick="execCmd('justifyLeft')"><i class="fa-solid fa-align-left"></i>
-                  </button>
-
-                  <button type="button" class="text-tool button-toggle2 btn-toggled" id="align-right"
-                     onclick="execCmd('justifyRight')"><i class="fa-solid fa-align-right"></i>
-                  </button>
-               </ul>
+                  </div>
+               </div>
+               <!-- -------------------------- BLOG CONTENT ---------------------------------- -->
+               <div class="d-flex flex-column align-items-center" id="contentbox" name="contentbox">
+                  <img src="" alt="" id="prevImg" name="prevImg">
+                  <textarea class="mt-4 p-5" id="editorbox" name="editorbox" contenteditable="true" required>
+                     </textarea>
+               </div>
             </div>
-
-            <!-- -------------------------- BLOG CONTENT ---------------------------------- -->
-            <textarea class="mt-4 p-5" id="editorbox" name="editorbox" contenteditable="true">
-            </textarea>
 
             <!-- ------------------------------SIDE INFO-------------------------------- -->
             <div id="side-info">
                <div class="d-flex align-items-center justify-content-center" id="blog-details"
-                  style="width: initial; background-color: #f1dca756; font-size: x-large;">
+                  style="width: initial; background-color: #D3D9D4; font-size: x-large; color: #273f4d;">
                   Details
                </div>
                <div class="d-flex flex-column justify-content-center alig-items-center p-2" id="additional-info"
@@ -298,7 +95,7 @@
                      <div style="font-size: x-large;"><b>Who can Comment?</b></div>
                      <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="CommentPermi" id="CommentPermi"
-                           value="everyone">
+                           value="everyone" checked>
                         <label class="form-check-label" for="inlineRadio1" style="font-size: large;">Everyone</label>
                      </div>
                      <div class="form-check form-check-inline">
@@ -311,6 +108,7 @@
                </div>
                <div><button type="submit" class="btn" id="publish-blog" formaction="/post-blog">Publish</button></div>
             </div>
+         </div>
       </main>
    </form>
    <script src="/js/create-blog.js"></script>

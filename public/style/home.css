@@ -1,12 +1,16 @@
-body {
+body,html {
    background-repeat: no-repeat;
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   overflow-x: hidden;
 }
 
 .navbar {
-   background-color:rgb(1, 1, 1);
+   background-color: rgb(1, 1, 1);
    height: 70px;
    /* padding: 0.9em 1em; */
 
@@ -46,9 +50,9 @@ body {
    /* color:white; */
    display: flex;
    flex-direction: column;
-   background: linear-gradient(0deg, rgba(116,141,146,1) 0%, rgba(255,255,255,1) 100%);
+   background: linear-gradient(0deg, rgba(116, 141, 146, 1) 0%, rgba(255, 255, 255, 1) 100%);
    width: 200px;
-   top:70px;
+   top: 70px;
    z-index: 3;
 }
 
@@ -73,7 +77,6 @@ body {
    height: 100%;
    position: fixed;
    background-color: rgba(0, 0, 0, 0.586);
-   display: none;
    transition: ease 1s;
    z-index: 1;
 }
@@ -83,13 +86,22 @@ body {
    width: 25%;
    border-left: 8px ridge #ffffff;
    position: fixed;
-   left: 100%;
+   max-width: 400px;
+   right: 0;
    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, #748D92 100%);
    box-shadow: 0px 0px 15px;
-   transition: ease 0.5s;
    margin-top: 70px;
-   z-index: 2;
+   transition: transform 0.3s ease;
+   z-index: 999;
 }
+
+#searchbar.hidden {
+   transform: translateX(100%);
+}
+
+/* #searchbar.shown {
+   transform: translateX(0);
+} */
 
 #user-pic:hover {
    transform: scale(1.1);
@@ -192,10 +204,6 @@ body {
       margin-left: 0px;
       height: calc(100% - 60px);
    }
-
-   #searchbar {
-      width: 100%;
-   }
 }
 
 @media screen and (max-width:1000px) and (orientation:landscape) {
@@ -213,5 +221,23 @@ body {
 
    #cover-screen {
       margin-left: 90px;
+   }
+}
+
+@media screen and (min-width: 1000px) {
+   #searchbar {
+       width: 25%;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   #searchbar {
+       width: 100%;
+   }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+   #searchbar {
+       width: 350px;
    }
 }

@@ -6,44 +6,57 @@
 
 //--------------------------- open search------------------------------------
 
-const search = document.getElementById('search-button');
-const searchbar = document.querySelector('#searchbar');
-const cover = document.querySelector('#cover-screen');
+// const search = document.getElementById('search-button');
+// const searchbar = document.querySelector('#searchbar');
+// const cover = document.querySelector('#cover-screen');
 
 
 function openSearch() {
 
-   const w = searchbar.style.left;
-   const computedStyle = window.getComputedStyle(searchbar);
-   const seaerchwidth = parseInt(computedStyle.width);
-   const computedwindow = parseInt(window.innerWidth);
+   const searchbar = document.getElementById('searchbar');
+   searchbar.classList.toggle('hidden');
+   searchbar.classList.toggle('shown');
+   
+   const cover = document.getElementById('cover-screen');
+   cover.classList.toggle('d-none');
+   cover.classList.toggle('d-block');
 
-   console.log(seaerchwidth);
-   console.log(computedwindow);
-   const ratio = Math.round(computedwindow/seaerchwidth);
-   console.log(ratio);
 
-   if (ratio === 4) {
-      if (w === '75%') {
-         searchbar.style.left = '100%';
-         cover.style.display = "none";
-      }
-      else {
-         searchbar.style.left = '75%';
-         cover.style.display = "block";
-      }
-   }
-   else if (ratio === 1){
-      if (w === '75%') {
-         searchbar.style.left = '100%';
-         cover.style.display = "none";
-      }
-      else {
-         searchbar.style.left = '0%';
-         cover.style.display = "block";
-      }
-   }
+   // const w = searchbar.style.left;
+   // const computedStyle = window.getComputedStyle(searchbar);
+   // const seaerchwidth = parseInt(computedStyle.width);
+   // const computedwindow = parseInt(window.innerWidth);
+
+   // console.log(seaerchwidth);
+   // console.log(computedwindow);
+   // const ratio = Math.round(computedwindow/seaerchwidth);
+   // console.log(ratio);
+
+   // if (ratio === 4) {
+   //    if (w === '75%') {
+   //       searchbar.style.left = '100%';
+   //       cover.style.display = "none";
+   //    }
+   //    else {
+   //       searchbar.style.left = '75%';
+   //       cover.style.display = "block";
+   //    }
+   // }
+   // else if (ratio === 1){
+   //    if (w === '75%') {
+   //       searchbar.style.left = '100%';
+   //       cover.style.display = "none";
+   //    }
+   //    else {
+   //       searchbar.style.left = '0%';
+   //       cover.style.display = "block";
+   //    }
+   // }
 };
+
+function openSelected(id){
+   location.href = `/view-blog/${id}`;
+}
 
 function searchContent(event) {
    const item = event.target.value;
@@ -67,7 +80,7 @@ function searchContent(event) {
 
             let hasResults = false; // Track if there are any results
 
-            // -------------------------------- SEARCHING BLOGS ----------------------------------------
+            // -------------------------------- SEARCHING BLOGS -------------------------------
             if (data.blogs && data.blogs.length > 0) {
                const blogsearch = document.createElement('span');
                blogsearch.id = "search-title";
@@ -81,6 +94,7 @@ function searchContent(event) {
                   linkElement.style.height = '16.66%';
                   linkElement.style.textDecoration = 'none';
                   linkElement.style.color = 'black';
+                  linkElement.onclick = () => openSelected(blog.blogid);
 
                   const imgElement = document.createElement('img');
                   imgElement.src = `/uploads/${blog.image}`;
@@ -92,7 +106,7 @@ function searchContent(event) {
                   linkElement.appendChild(imgElement);
 
                   const spanElement = document.createElement('span');
-                  spanElement.className = 'nav-name ms-3';
+                  spanElement.className = 'search-name ms-3';
                   spanElement.innerHTML = `<b>${blog.blogname}</b>`;
                   linkElement.appendChild(spanElement);
 
@@ -127,7 +141,7 @@ function searchContent(event) {
                   linkElement.appendChild(imgElement);
 
                   const spanElement = document.createElement('span');
-                  spanElement.className = 'nav-name ms-3';
+                  spanElement.className = 'search-name ms-3';
                   spanElement.innerHTML = `<b>${user.username}</b>`;
                   linkElement.appendChild(spanElement);
 
