@@ -1,32 +1,36 @@
-// const form=document.querySelector('form');
-// const input=document.querySelector('input');
-// const div=document.querySelector('#comms')
-// form.addEventListener('submit',function(e){
-//     e.preventDefault();
-//     const cat=input.value;
-//     const user=document.createElement('div');
+var module = angular.module("testModule", []);
+module.controller("testController", function ($scope, $http) {
 
-//     const newdiv=document.createElement('div');
-    
-//     user.style.height='2.5em';
-//     newdiv.style.backgroundColor='black';
-//     newdiv.style.color='white';
-//     newdiv.style.backgroundColor='#124E66';
-//     user.style.textAlign='center';
-//     user.style.color='white';
-//     user.style.paddingTop='0.2em';
-//     user.style.marginTop='5px'
-//     newdiv.style.paddingTop='1em';
-//     newdiv.style.paddingLeft='1em';
-//     user.style.backgroundColor='#2E3944';
-//     newdiv.style.border='0.6px solid white';
-//     newdiv.style.height='3em';
+   $scope.username = localStorage.getItem("activeID");
 
-//     newdiv.innerText=cat;
-//     user.innerText='user';
-//     div.append(user);
-//     div.append(newdiv);
-//     // newdiv.prepend(user)
-//     input.value="";
-// })
-// console.log("hiiiiii")
+   $scope.dolike = function (blogid, event) {
+      var url = "/do-blog-like?blogid=" + blogid + "&username=" + $scope.username;
+      $http.get(url).then(done, fail);
+      function done(response) {
+
+         var likedBlogIndex = $scope.jsonArray.findIndex(function (blog) {
+            return blog.blogid === blogid;
+         })
+
+         if (response.data == "not liked") {
+            var button = event.target;
+            button.classList.remove('fa-solid');
+            button.classList.add('fa-regular');
+            if (likedBlogIndex !== -1) {
+               $scope.jsonArray[likedBlogIndex].likes--;
+            }
+         }
+         else if (response.data == "liked") {
+            var button = event.target;
+            button.classList.remove('fa-regular');
+            button.classList.add('fa-solid');
+            if (likedBlogIndex !== -1) {
+               $scope.jsonArray[likedBlogIndex].likes++;
+            }
+         }
+      }
+      function fail(response) {
+         alert(response.data);
+      }
+   }
+})

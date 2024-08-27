@@ -35,9 +35,14 @@
     </div>
     <div id="comms">
         <form id="formAction" method="post" style="display: flex;">
-            <label for="comment"></label>
-            <input type="text" class="form-control px-4" name="comment" placeholder="Comment Here" style="flex-grow: 2;border-radius: 0%;  ">
-            <button type="submit" class="btn btn-primary" style="border-radius:0; padding: 1em 2em;">Submit</button>
+            <!-- <label for="comment"></label> -->
+            <!-- <input type="text" class="form-control px-4" name="comment" placeholder="Comment Here" style="flex-grow: 2;border-radius: 0%;  ">
+            <button type="submit" class="btn btn-primary" style="border-radius:0; padding: 1em 2em;">Submit</button> -->
+
+            <div class="input-group mb-3">
+               <input type="text" class="form-control p-2 ps-3" name="comment" placeholder="Comment Here" aria-describedby="button-addon2">
+               <button type="submit" class="btn btn-primary" id="button-addon2">Submit</button>
+             </div>
         </form>
 
         <%for(let comm of comments){%>

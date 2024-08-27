@@ -3,31 +3,22 @@ body {
    background-attachment: fixed;
    background-size: cover;
    background-position: center;
+   background-color: #273f4d;
 }
 
 .navbar {
-   background-color: rgb(121, 125, 98);
+   background-color: black;
    height: 70px;
    box-shadow: 0px 3px 30px black;
-}
-
-#nav-control {
-   background-color: #bead81;
-   height: 35px;
-}
-
-#nav-control2 {
-   background-color: #bead81;
-   height: 35px;
-   width: fit-content;
-   box-shadow: 2px 2px 10px #baa587;
 }
 
 #blog-title {
    /* margin-top: 15px; */
    font-size: xx-large;
-   font-family: Arial, Helvetica, sans-serif;
+   /* font-family: Arial, Helvetica, sans-serif; */
+   letter-spacing: 4px;
    font-weight: bold;
+   color: #D3D9D4;
 }
 
 #inputBlogTitle {
@@ -35,117 +26,51 @@ body {
    box-shadow: 0px 0px 5px black;
    height: calc(100vh / 12);
    font-size: larger;
-   background-color: #f1dca756;
+   background-color: #d3d9d4;
    border: none;
+   margin-bottom: 20px;
+   margin-right: 50px;
 }
 
 #inputBlogTitle:focus {
-   box-shadow: 0px 0px 10px #baa587;
+   box-shadow: 0px 0px 10px #D3D9D4;
 }
 
-#tools {
-   list-style-type: none;
-   overflow-x: scroll;
+#insert-image {
+   height: 70%;
+   width: 75px;
+   float: left;
+   /* margin-left: 50px; */
+   /* background-color: none; */
+   border: 2px solid #748D92;
+   padding: 10px;
+   box-shadow: 0px 0px 5px #000000;
 }
 
-#tools::-webkit-scrollbar {
-   display: none;
-}
-
-.text-tool {
-   /* border-radius: 5px; */
-   margin: 1px;
-   /* border: 1px solid; */
-   height: inherit;
-   aspect-ratio: 1;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   box-shadow: inset 1px 1px 10px #f5ebd5;
+#insert-image :hover {
    cursor: pointer;
 }
 
-button.text-tool {
-   /* border-radius: 5px; */
-   margin: 1px;
-   /* border: 1px solid; */
-   height: inherit;
-   aspect-ratio: 1;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   /* box-shadow: inset 1px 1px 10px #f5ebd5; */
-   cursor: pointer;
-   background: none;
-   border: none;
+#contentbox {
+   margin-top: 30px;
+   /* border: 2px solid red; */
+   width: 100%;
+   background: linear-gradient(0deg, rgba(18, 78, 102, 1) 6%, rgba(116, 141, 146, 1) 84%);
 }
 
-#bgtextcolor {
-   width: 20px;
-   height: 20px;
-   border-radius: 5px;
-   border: 2px solid;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-#inputtextcolor,
-#inputbgtextcolor {
-   border: none;
-   height: 4px;
-   width: 20px;
-}
-
-#select-font-style {
-   border: none;
-   width: 120px;
-   background-color: #bead81;
-}
-
-#select-font-size {
-   border: none;
-   width: 50px;
-   background-color: #bead81;
-}
-
-.button-toggle1 {
-   box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.429);
-}
-
-.button-toggle2 {
-   box-shadow: inset 1px 1px 10px #f5ebd5;
-}
-
-/* .text-tool:hover {
-   background-color: #c0b086;
-   box-shadow: inset 1px 1px 10px white;
-} */
-
-.text-tool:active {
-   background-color: #c3b38b;
-   box-shadow: inset 1px 1px 8px rgba(0, 0, 0, 0.489);
-}
-
-@media screen and (min-width:600px) {
-   #nav-control {
-      display: none;
-   }
-}
-
-@media screen and (max-width:600px) {
-   #nav-control2 {
-      display: none;
-   }
+#prevImg{
+   margin: 30px;
+   width: 50%;
+   box-shadow: 7px 7px 10px #00000040;
 }
 
 #editorbox {
-   background-color: #f1dca756;
+   background-color: #d3d9d4ae;
    height: 500px;
-   box-shadow: 0px 0px 15px #988a66c6;
+   box-shadow: 0px 0px 15px #36405ac6;
    width: 80%;
    margin-bottom: 40px;
-   border: 2px solid #ffcb69;
+   border: 2px solid #212A31;
    overflow-y: scroll;
 }
 
@@ -164,19 +89,19 @@ button.text-tool {
    width: 40%;
    max-width: 350px;
    aspect-ratio: 5;
-   background-color: #FFCB69;
+   background-color: #2E3944;
    font-size: large;
    font-weight: 500;
-   color: #5b4b40;
-   box-shadow: 0px 0px 15px #4e4530e8;
+   color: #D3D9D4;
+   box-shadow: 0px 0px 10px #2E3944;
 }
 
 #publish-blog:hover {
-   background-color: #ebbc65;
+   background-color: #324353;
 }
 
 #publish-blog:active {
-   background-color: #e0b464;
+   background-color: #2E3944;
 }
 
 @media screen and (min-width: 1000px) {
@@ -193,7 +118,7 @@ button.text-tool {
       position: fixed;
       right: 0;
       box-shadow: 0px 0px 10px #FFCB69;
-      background-color: #f1dca727;
+      background: linear-gradient(0deg, rgb(255, 255, 255) 0%, #748D92 100%);
       overflow-y: scroll;
    }
 
@@ -205,5 +130,11 @@ button.text-tool {
 @media screen and (max-width: 1000px) {
    #blog-details {
       display: none;
+      background: linear-gradient(0deg, rgb(255, 255, 255) 0%, #748D92 100%);
+   }
+
+   #side-info {
+      width: 100vw;
+      background: linear-gradient(0deg, rgb(255, 255, 255) 0%, #748D92 100%);
    }
 }
