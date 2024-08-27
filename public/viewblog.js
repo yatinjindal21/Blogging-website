@@ -3,7 +3,10 @@ module.controller("testController", function ($scope, $http) {
 
    $scope.username = localStorage.getItem("activeID");
 
+   const blogid = document.getElementById("blogid");
+
    $scope.dolike = function (blogid, event) {
+      alert(blogid);
       var url = "/do-blog-like?blogid=" + blogid + "&username=" + $scope.username;
       $http.get(url).then(done, fail);
       function done(response) {

@@ -1,78 +1,84 @@
 <% layout('layout/boilerplate') %>
-    <link rel="stylesheet" href="/style/view-blog.css">
-    <div id="box">
-        <div id="title">
-            <center>
-                <span id="titletext">
-                    <%=blog[0].blogname%>
-                </span>
-            </center>
-        </div>
-        <div id="imageblog">
-            <center>
-                <img class="img-fluid" id="images" src="/uploads/<%=blog[0].image%>" alt="">
-            </center>
-        </div>
-        <div id="contentLikes">
-            <div id="content">
-                <%=blog[0].blogcontent%>
-                    <div id="author"><i>
-                            <%=blog[0].name%>
-                        </i></div>
+   <link rel="stylesheet" href="/style/view-blog.css">
+   <input type="hidden" id="blogid" value="<%= blog[0].blogid%>">
+   <div id="box">
+      <div id="title">
+         <center>
+            <span id="titletext">
+               <%=blog[0].blogname%>
+            </span>
+         </center>
+      </div>
+      <div id="imageblog">
+         <center>
+            <img class="img-fluid" id="images" src="/uploads/<%=blog[0].image%>" alt="">
+         </center>
+      </div>
+      <div id="contentLikes">
+         <div id="content">
+            <%=blog[0].blogcontent%>
+               <div id="author"><i>
+                     <%=blog[0].name%>
+                  </i></div>
+         </div>
+         <div id="likeComments">
+            <div id="likesbox"><i class="bi bi-balloon-heart" onclick="dolike('<%=blog[0].blogid%>',$event)"></i>
+               <%=blog[0].likes%>
             </div>
-            <div id="likeComments">
-                <div id="likesbox"><i class="bi bi-heart-fill"></i> <%=blog[0].likes%> </div>
 
-                <div id="userprofile"><img src="/uploads/kimchi3.jpg"  id="pfp" style="box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.187);height: 35px;">
-                    <span id="userr">
-                        <%=blog[0].username%>
-                    </span>
-                </div>
-                <div id="likesbox"><i class="bi bi-chat-fill"></i> 40</div>
-
+            <div id="userprofile"><img src="/uploads/kimchi3.jpg" id="pfp"
+                  style="box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.187);height: 35px;">
+               <span id="userr">
+                  <%=blog[0].username%>
+               </span>
             </div>
-        </div>
-    </div>
-    <div id="comms">
-        <form id="formAction" method="post" style="display: flex;">
-            <!-- <label for="comment"></label> -->
-            <!-- <input type="text" class="form-control px-4" name="comment" placeholder="Comment Here" style="flex-grow: 2;border-radius: 0%;  ">
+            <div id="likesbox"><i class="bi bi-chat-fill"></i> 40</div>
+
+         </div>
+      </div>
+   </div>
+   <div id="comms">
+      <form id="formAction" method="post" style="display: flex;">
+         <!-- <label for="comment"></label> -->
+         <!-- <input type="text" class="form-control px-4" name="comment" placeholder="Comment Here" style="flex-grow: 2;border-radius: 0%;  ">
             <button type="submit" class="btn btn-primary" style="border-radius:0; padding: 1em 2em;">Submit</button> -->
 
-            <div class="input-group mb-3">
-               <input type="text" class="form-control p-2 ps-3" name="comment" placeholder="Comment Here" aria-describedby="button-addon2">
-               <button type="submit" class="btn btn-primary" id="button-addon2">Submit</button>
-             </div>
-        </form>
+         <div class="input-group mb-3">
+            <input type="text" class="form-control p-2 ps-3" name="comment" placeholder="Comment Here"
+               aria-describedby="button-addon2">
+            <button type="submit" class="btn btn-primary" id="button-addon2">Submit</button>
+         </div>
+      </form>
 
-        <%for(let comm of comments){%>
-            <div class="card my-3" style="border: none; " >
-                <div class="card-header px-3">
-                    <img src="/uploads/kimchi.jpg" class="shadow-4" alt="Avatar" id="pfp"/>
-                    <%=comm.username%>
-                </div>
-                <div class="card-body px-5" style="background-color:#14374c;color: white; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);" >
-                    <p class="card-text">
-                        <%=comm.body%>
-                    </p>
-                </div>
+      <%for(let comm of comments){%>
+         <div class="card my-3" style="border: none; ">
+            <div class="card-header px-3">
+               <img src="/uploads/kimchi.jpg" class="shadow-4" alt="Avatar" id="pfp" />
+               <%=comm.username%>
             </div>
-        <%}%>
+            <div class="card-body px-5"
+               style="background-color:#14374c;color: white; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);">
+               <p class="card-text">
+                  <%=comm.body%>
+               </p>
+            </div>
+         </div>
+         <%}%>
 
-    </div>
+   </div>
 
 
 
 
 
-    <script>
-        document.getElementById('formAction').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const user = document.getElementById('username').value;
-            // console.log(username);
-            // console.log(blog[0].blogid);
-            // console.log('jjjjjjjjjjjjjjjjjjjjjjjj');
-            this.action = `/view-blog/<%=blog[0].blogid%>/comment?username=${user}`;
-            this.submit();
-        })
-    </script>
+   <script>
+      document.getElementById('formAction').addEventListener('submit', function (event) {
+         event.preventDefault();
+         const user = document.getElementById('username').value;
+         // console.log(username);
+         // console.log(blog[0].blogid);
+         // console.log('jjjjjjjjjjjjjjjjjjjjjjjj');
+         this.action = `/view-blog/<%=blog[0].blogid%>/comment?username=${user}`;
+         this.submit();
+      })
+   </script>
